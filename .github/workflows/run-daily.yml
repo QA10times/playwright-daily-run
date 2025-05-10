@@ -39,16 +39,9 @@ jobs:
           exit 1
         fi
 
-    - name: Send failure email
-      if: failure()
-      uses: dawidd6/action-send-mail@v3
+    - name: Upload logs as artifact
+      if: always()
+      uses: actions/upload-artifact@v3
       with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: your.email@gmail.com
-        password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: "Playwright Daily Run FAILED"
-        body: |
-          One or more scripts failed in today's automated run. Please check logs in the GitHub Actions tab.
-        to: qa@10times.com
-        from: your.email@gmail.com
+        name: script-logs
+        path: logs/
