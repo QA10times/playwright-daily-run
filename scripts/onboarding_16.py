@@ -4,7 +4,7 @@ import re
 
 def get_temp_email_and_otp():
     with sync_playwright() as p:
-        browser = p.firefox.launch(headless=False, slow_mo=1000)  # Use headless=True for headless mode
+        browser = p.firefox.launch(headless=True, slow_mo=1000)  # Use headless=True for headless mode
         context = browser.new_context()
         page = context.new_page()
 
