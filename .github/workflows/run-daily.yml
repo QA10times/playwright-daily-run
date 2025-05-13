@@ -1,4 +1,4 @@
-name: Run Playwright Scripts Daily
+name: Run Scripts Daily
 
 on:
   schedule:
@@ -20,30 +20,9 @@ jobs:
       with:
         python-version: '3.9'
 
-    - name: Install system dependencies for Playwright
+    - name: Install dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          libnss3 \
-          libatk1.0-0 \
-          libatk-bridge2.0-0 \
-          libcups2 \
-          libxcomposite1 \
-          libxdamage1 \
-          libxrandr2 \
-          libgbm1 \
-          libasound2 \
-          libxshmfence1 \
-          libxss1 \
-          libgtk-3-0
-
-    - name: Install Python dependencies (Playwright and others)
-      run: |
-        pip install --upgrade pip
         pip install playwright
-
-    - name: Install Playwright browser binaries
-      run: |
         playwright install
 
     - name: Run all scripts one by one and collect errors
