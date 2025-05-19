@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Mobile Number").click()
     page.get_by_role("textbox", name="Mobile Number").fill('')
     page.get_by_role("textbox", name="Mobile Number").click()
-    page.get_by_role("textbox", name="Mobile Number").fill("8787776778")
+    page.get_by_role("textbox", name="Mobile Number").fill("87877767788")
     page.get_by_role("button", name="Save Changes").click()
 
     # ---------------------
