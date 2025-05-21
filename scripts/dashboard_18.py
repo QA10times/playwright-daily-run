@@ -22,6 +22,7 @@ def run(playwright: Playwright) -> None:
     page.mouse.move(0, 500)
     page.get_by_role("link", name="Dashboard").click()
     page.mouse.move(500, 0)
+    time.sleep(5)
     page.get_by_role("combobox").click()
     page.get_by_label("Tradeshows").click()
     page.get_by_text("Open menuDashboardPlanPromoteMenuNotifications").click()
