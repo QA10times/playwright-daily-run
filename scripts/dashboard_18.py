@@ -12,6 +12,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(10)
     page.goto("https://gtm.whr.ai/internal/search/events?view=table")
     page.goto("https://gtm.whr.ai/internal/search/events?view=table&status=active%2Ccancelled%2Cpostponed&active_gte=2025-01-01&active_lte=2025-01-31&locationIds=5dc0b154-e2d8-5160-9bd6-dd8175a58c47&ratings=0-1%2C2-3&show=branded%2Cseries%2Cforecasted%2Crating%2CestimatedExhibitors%2CtrustScore%2CaudienceSpread%2CaudienceZone%2CeconomicImpact%2Crankings%2Cscores%2Cmaturity%2Cfrequency%2Calerts")
+    page.get_by_role("button", name="Skip").click()
     page.mouse.move(0, 500)
     time.sleep(10)
     page.get_by_role("link", name="Dashboard").click()
