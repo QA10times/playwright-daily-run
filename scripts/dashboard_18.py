@@ -28,15 +28,15 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.get_by_role("combobox").click()
     page.get_by_label("Tradeshows").click()
-    page.get_by_text("Open menuDashboardPlanPromoteMenuNotifications").click()
+    page.get_by_text("Open menuDashboardUpgradePlanPromoteMenuNotifications").click()
     page.get_by_role("button", name="Location New York, New York,").click()
     page.get_by_placeholder("E.g. Bengaluru, Karnataka").click()
     page.get_by_placeholder("E.g. Bengaluru, Karnataka").fill("india")
     page.get_by_role("option", name="India", exact=True).click()
-    page.get_by_text("Open menuDashboardPlanPromoteMenuNotifications").click()
+    page.get_by_text("Open menuDashboardUpgradePlanPromoteMenuNotifications").click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
-    page.get_by_text("Open menuDashboardPlanPromoteMenuNotifications").click()
+    page.get_by_text("Open menuDashboardUpgradePlanPromoteMenuNotifications").click()
     page.get_by_role("button", name="Explore Events").click()
 
     # ---------------------
