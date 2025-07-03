@@ -29,7 +29,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox").click()
     page.get_by_label("Tradeshows").click()
     page.get_by_text("Open menuDashboardUpgradePlanPromoteMenuNotifications").click()
-    page.get_by_role("button", name="Location New York, New York,").click()
+    page.get_by_role("button", name="Location").click()
     page.get_by_placeholder("E.g. Bengaluru, Karnataka").click()
     page.get_by_placeholder("E.g. Bengaluru, Karnataka").fill("india")
     page.get_by_role("option", name="India", exact=True).click()
