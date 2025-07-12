@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.13'
+        python-version: '3.12'   # Use stable version
 
     - name: Install dependencies
       run: |
@@ -29,6 +29,7 @@ jobs:
     - name: Run all scripts one by one and collect errors
       run: |
         mkdir -p logs
+        rm -f logs/failures.txt
         failed=0
         for file in scripts/*.py; do
           echo "Running $file"
