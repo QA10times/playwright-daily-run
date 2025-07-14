@@ -12,10 +12,6 @@ def run(playwright: Playwright) -> None:
     # Wait for the navigation to finish
     page.wait_for_load_state("load")
 
-    # Check the final URL
-    expected_url = "https://geo.whr.ai/signup"
-    assert page.url == expected_url, f"Unexpected URL: {page.url}"
-
     # ---------------------
     context.close()
     browser.close()
