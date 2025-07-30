@@ -15,9 +15,12 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("radio", name="Bookmark").click()
     page.get_by_role("button", name="Submit").click()
     time.sleep(10)
+    page.goto("https://geo.whr.ai/internal/event/a07b2635-2fd1-5038-ab1f-143a3eec4de4")
     page.get_by_role("button", name="Bookmark Event").click()
     page.get_by_role("radio", name="Un-Bookmark").click()
     page.get_by_role("button", name="Submit").click()
+    time.sleep(3)
+    page.goto("https://geo.whr.ai/internal/event/a07b2635-2fd1-5038-ab1f-143a3eec4de4")
 
     # ---------------------
     context.close()

@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.mouse.move(0, 500)
     page.get_by_role("link", name="Dashboard").click()
     page.mouse.move(500, 0)
-    page.wait_for_timeout(5)
+    time.sleep(5)
     page.get_by_placeholder("Search Events").click()
     page.get_by_placeholder("Search Events").fill("magic las vegas")
     page.get_by_text("MAGIC LAS VEGAS", exact=True).click()
