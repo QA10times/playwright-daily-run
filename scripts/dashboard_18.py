@@ -30,7 +30,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("option", name="India", exact=True).click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
-    page.get_by_role("button", name="Dates 1 Jul, 2025 - 30 Jun,").click()
+    page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="Explore Events").click()
 
     # ---------------------
