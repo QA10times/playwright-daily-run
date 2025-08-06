@@ -3,7 +3,7 @@ from playwright.sync_api import Playwright, sync_playwright, TimeoutError
 
 
 def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=True, slow_mo=500)
+    browser = playwright.chromium.launch(headless=False, slow_mo=500)
     context = browser.new_context()
     page = context.new_page()
 
@@ -21,10 +21,10 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Event POC").click()
 
     print("✅ Clicking 'Show details'")
-    page.get_by_role("button", name="Show details").click()
+    page.get_by_role("button", name="Show details").first.click()
 
     print("✅ Clicking Email link")
-    page.get_by_text("gsoffice@geochemsoc.org").click()
+    page.get_by_text("gsoffice@geochemsoc.org").first.click()
 
     print("✅ Clicking 'Read More'")
     page.get_by_text("Read More").click()
@@ -36,7 +36,7 @@ def run(playwright: Playwright) -> None:
 
     # Define expected content you want to confirm is present after clicks
     # Example: text that should appear after Read More expands (replace with your actual expected content)
-    EXPECTED_TEXT = "gsoffice@geochemsoc.org"
+    EXPECTED_TEXT = "The Goldschmidt Conference is"
 
     print(f"\n✅ Verifying if expected text '{EXPECTED_TEXT}' is present on page...")
     try:
