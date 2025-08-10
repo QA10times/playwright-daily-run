@@ -14,17 +14,17 @@ def run(playwright: Playwright) -> None:
     page.wait_for_timeout(5000)
 
     print("✅ Navigating to Event Page")
-    page.goto("https://gtm.whr.ai/internal/event/a07b2635-2fd1-5038-ab1f-143a3eec4de4")
+    page.goto("https://gtm.whr.ai/internal/event/4b00a3c7-26a1-5350-bc21-9abe9c97ee7a")
     page.wait_for_timeout(3000)
 
     print("✅ Clicking 'Event POC'")
     page.get_by_role("button", name="Event POC").click()
 
     print("✅ Clicking 'Show details'")
-    page.get_by_role("button", name="Show details").click()
+    page.get_by_role("button", name="Show details").first.click()
 
     print("✅ Clicking Email link")
-    page.get_by_text("gsoffice@geochemsoc.org").click()
+    page.get_by_text("kristina.ishchenko@ubm.com").click()
 
     print("✅ Clicking 'Read More'")
     page.get_by_text("Read More").click()
@@ -36,7 +36,7 @@ def run(playwright: Playwright) -> None:
 
     # Define expected content you want to confirm is present after clicks
     # Example: text that should appear after Read More expands (replace with your actual expected content)
-    EXPECTED_TEXT = "gsoffice@geochemsoc.org"
+    EXPECTED_TEXT = "kristina.ishchenko@ubm.com"
 
     print(f"\n✅ Verifying if expected text '{EXPECTED_TEXT}' is present on page...")
     try:
