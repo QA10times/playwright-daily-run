@@ -4,7 +4,7 @@ from playwright.sync_api import Playwright, sync_playwright, Error
 
 
 def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = playwright.chromium.launch(headless=True, slow_mo=500)
     context = browser.new_context()
     page = context.new_page()
 
