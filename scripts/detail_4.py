@@ -19,7 +19,7 @@ def run(playwright: Playwright) -> None:
 
     try:
         with page.expect_popup() as popup_info:
-            page.get_by_role("complementary").filter(has_text="Back to").get_by_role("link").click()
+            page.get_by_role("complementary").filter(has_text="BackConferencesGoldschmidt").get_by_role("link").click()
         popup = popup_info.value
 
         # Wait until popup is fully loaded
