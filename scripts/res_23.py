@@ -19,7 +19,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(2)
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("india")
     time.sleep(2)
-    page.get_by_role("option", name="India", exact=True).click()
+    page.get_by_role("option", name="India Country").locator("div").click()
     time.sleep(2)
     page.get_by_role("dialog").get_by_role("combobox").fill("united")
     time.sleep(2)

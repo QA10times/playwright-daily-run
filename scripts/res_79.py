@@ -12,7 +12,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("button", name="Location").click()
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("india")
-    page.get_by_role("option", name="India", exact=True).click()
+    page.get_by_role("option", name="India Country").locator("div").click()
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("button", name="Save").click()

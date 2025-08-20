@@ -20,7 +20,7 @@ def run(playwright: Playwright) -> None:
     # Step 4: Fill first location input
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("india")
     time.sleep(3)
-    page.get_by_role("option", name="India", exact=True).click()
+    page.get_by_role("option", name="India Country").locator("div").click()
     time.sleep(3)
     page.get_by_role("button", name="Location").click()
     page.get_by_role("button", name="Apply Filters").click()

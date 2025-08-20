@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").click()
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("india")
     time.sleep(2)
-    page.get_by_role("option", name="India", exact=True).click()
+    page.get_by_role("option", name="India Country").locator("div").click()
     page.get_by_role("button", name="Event Ranking").click()
     page.get_by_role("switch", name="Rank").click()
     page.locator(".relative > .absolute").first.click()

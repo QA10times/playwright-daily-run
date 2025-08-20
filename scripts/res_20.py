@@ -20,7 +20,7 @@ def run(playwright: Playwright) -> None:
     # Step 4: Fill first location input
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("india")
     page.wait_for_timeout(2000)
-    page.get_by_role("option", name="India", exact=True).click()
+    page.get_by_role("option", name="India Country").locator("div").click()
 
     # Step 5: Click second "Location India" dropdown button to open panel
     page.get_by_role("button", name="Apply Filters").click()
