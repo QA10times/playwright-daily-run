@@ -15,11 +15,11 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
 
     # Navigate to event page
-    page.goto("https://geo.whr.ai/internal/event/a07b2635-2fd1-5038-ab1f-143a3eec4de4")
+    page.goto("https://geo.whr.ai/internal/event/6047ff7c-8bb5-5754-b59f-28530c617057")
 
     try:
         with page.expect_popup() as popup_info:
-            page.get_by_role("complementary").filter(has_text="BackConferencesGoldschmidt").get_by_role("link").click()
+            page.get_by_role("complementary").filter(has_text="BackTradeshowsRural Telecom").get_by_role("link").click()
         popup = popup_info.value
 
         # Wait until popup is fully loaded
