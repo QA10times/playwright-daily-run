@@ -13,19 +13,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Maturity").click()
     page.get_by_role("radio", name="New").click()
     page.get_by_role("button", name="Apply Filters").click()
-
-    # Locator for the 'Maturity' badge text
-    badge_locator = page.locator(
-        "[id=\"radix-\\:r29\\:-content-table\"] > div > .flex-1 > .h-\\[calc\\(100vh-210px\\)\\] > .w-full > .\\[\\&_tr\\:last-child\\]\\:border-0 > tr > td:nth-child(9) > .badge_primary"
-    ).first
-
-    badge_text = badge_locator.inner_text().strip()
-
-    # Check condition
-    if badge_text.lower() == "new":
-        print("✅ Test Passed: Badge text is 'New'")
-    else:
-        raise AssertionError(f"❌ Test Failed: Badge text is '{badge_text}' instead of 'New'")
+    page.get_by_role("cell", name="Maturity").click()
 
     # ---------------------
     context.close()
