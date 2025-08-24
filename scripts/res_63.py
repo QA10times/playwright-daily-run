@@ -25,7 +25,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="+ Top 1000").click()
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("cell", name="Est. Exhibitors").locator("div").click()
-    page.get_by_role("cell", name="Rank").locator("div").click()
+    page.get_by_role("cell", name="Rank").locator("div").nth(0).click()
     page.get_by_role("cell", name="Trust").locator("div").click()
     page.get_by_role("link", name="2").click()
 
