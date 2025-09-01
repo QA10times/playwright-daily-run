@@ -22,7 +22,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="2").click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("gridcell", name="1", exact=True).first.click()
-    page.get_by_role("gridcell", name="30").nth(1).click()
+    page.get_by_role("gridcell", name="30").click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(5)
