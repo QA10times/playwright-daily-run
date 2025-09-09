@@ -7,7 +7,7 @@ def run(playwright: Playwright) -> None:
     page = context.new_page()
     page.goto("https://gtm.whr.ai/signin")
     page.get_by_role("link", name="Sign up").click()
-    page.get_by_role("tab", name="Location Insights").click()
+    page.get_by_role("tab", name="Suppliers").click()
 
     # Wait for the navigation to finish
     page.wait_for_load_state("load")
