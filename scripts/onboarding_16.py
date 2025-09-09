@@ -23,7 +23,7 @@ def get_temp_email_and_otp():
 
         # Fill the signup form
         page2.fill("input[name='email']", temp_email)
-        page2.get_by_role("listitem").filter(has_text="Research and M&A").click()
+        page2.get_by_role("tab", name="Participants").click()
         page2.click("button[type='submit']")  # Submit the form
 
         # Wait for OTP email to arrive in Temp-Mail inbox
