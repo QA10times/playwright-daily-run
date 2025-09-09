@@ -40,7 +40,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("1", exact=True).nth(2).click()
     page.get_by_text("Calendar").click()
     page.get_by_text("Table").click()
-    page.get_by_role("button", name="Active Events").click()
+    page.get_by_role("button", name="Upcoming Events").click()
     time.sleep(3)
     page.get_by_role("link", name="2", exact=True).click()
     time.sleep(3)
