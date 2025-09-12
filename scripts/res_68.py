@@ -10,12 +10,8 @@ def run(playwright: Playwright) -> None:
     page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
     time.sleep(5)
     page.get_by_role("button", name="Skip").click()
-    page.locator("#forecasted-status").nth(1).click()
     page.get_by_role("button", name="Audience Profile").click()
     page.get_by_role("option", name="Accountants").click()
-    page.get_by_role("option", name="Advertising Managers").click()
-    page.get_by_role("option", name="Aerospace Engineers").click()
-    page.get_by_role("option", name="Architects").click()
     page.get_by_role("button", name="Audience Country").click()
     page.get_by_role("searchbox", name="Search").click()
     page.get_by_role("searchbox", name="Search").fill("india")
@@ -23,7 +19,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("cell", name="Audience Zone").locator("div").click()
     page.get_by_role("cell", name="Audience Country").locator("div").click()
-    page.get_by_role("link", name="2").click()
+    page.get_by_role("link", name="Go to next page").click()
 
 
     # ---------------------

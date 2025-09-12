@@ -21,7 +21,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("tab", name="Calendar").click()
     page.get_by_role("cell").filter(has_text="Events").first.click()
     time.sleep(3)
-    page.get_by_role("link", name="2", exact=True).click()
+    page.get_by_role("link", name="Go to next page").click()
     page.get_by_role("combobox").filter(has_text="Monthly").click()
     page.get_by_role("option", name="Yearly").click()
     page.get_by_role("combobox").filter(has_text="Yearly").click()

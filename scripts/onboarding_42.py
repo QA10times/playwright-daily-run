@@ -7,7 +7,7 @@ def run(playwright: Playwright) -> None:
     page = context.new_page()
     page.goto("https://geo.whr.ai/signin")
     page.get_by_role("link", name="Sign up").click()
-    page.get_by_role("tab", name="Industry Insights").click()
+    page.get_by_role("tab", name="Participants").click()
 
     # Wait for the navigation to finish
     page.wait_for_load_state("load")

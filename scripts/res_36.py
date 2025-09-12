@@ -22,7 +22,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.get_by_role("cell", name="Event Rating").locator("div").click()
     time.sleep(3)
-    page.get_by_role("link", name="2").click()
+    page.get_by_role("link", name="Go to next page").click()
 
 
 with sync_playwright() as playwright:

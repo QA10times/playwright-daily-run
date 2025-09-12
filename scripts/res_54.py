@@ -30,7 +30,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="Large").click()
     page.get_by_role("checkbox", name="Ultra").click()
     page.get_by_role("button", name="Apply Filters").click()
-    page.get_by_role("link", name="2").click()
+    page.get_by_role("link", name="Go to next page").click()
 
     # ---------------------
     context.close()

@@ -42,7 +42,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Table").click()
     page.get_by_role("button", name="Social Events").click()
     time.sleep(3)
-    page.get_by_role("link", name="2", exact=True).click()
+    page.get_by_role("link", name="Go to next page").click()
     time.sleep(3)
     page.get_by_role("button", name="Bookmarked Events").click()
     page.get_by_role("cell").filter(has_text=re.compile(r"^$")).get_by_role("button").click()

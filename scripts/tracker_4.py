@@ -17,7 +17,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("button", name="Skip").click()
     time.sleep(3)
-    page.get_by_role("link", name="in Use Event Participation Effortlessly", exact=False).click()
+    page.get_by_role("link", name="Event Participation Effortlessly", exact=False).click()
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("textbox", name="Search By Event Name").click()
     page.get_by_role("textbox", name="Search By Event Name").fill("magic")
@@ -32,7 +32,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Event Participation").first.click()
     page.get_by_role("link", name="back test").click()
     time.sleep(3)
-    page.get_by_role("link", name="2").click()
+    page.get_by_role("link", name="Go to next page").click()
 
     # ---------------------
     context.close()

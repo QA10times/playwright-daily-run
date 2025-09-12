@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("button", name="Popularity").click()
     page.get_by_role("dialog").get_by_role("button", name="Estimated Visitors").click()
-    page.get_by_role("link", name="2").click()
+    page.get_by_role("link", name="Go to next page").click()
 
     # ---------------------
     context.close()

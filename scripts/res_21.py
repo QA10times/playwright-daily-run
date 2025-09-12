@@ -27,7 +27,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
 
     # Step 8: Go to page 2
-    page.get_by_role("link", name="2", exact=True).click()
+    page.get_by_role("link", name="Go to next page").click()
 
     context.close()
     browser.close()

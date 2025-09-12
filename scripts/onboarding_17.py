@@ -24,6 +24,7 @@ def get_temp_email_and_otp():
 
         # Fill the signup form
         page2.fill("input[name='email']", temp_email)
+        page2.get_by_role("tab", name="Suppliers").click()
         page2.get_by_text("Local Commerce").click()
         page2.click("button[type='submit']")  # Submit the form
 

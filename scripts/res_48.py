@@ -11,8 +11,6 @@ def run(playwright: Playwright) -> None:
 
     try:
         page.get_by_role("button", name="Skip").click(timeout=5000)
-        page.get_by_role("button", name="Forecasted Status").locator("#forecasted-status").click(timeout=5000)
-        page.get_by_role("switch", name="Show Frequency in filter").click(timeout=5000)
         page.get_by_role("button", name="Frequency Show Frequency in").click(timeout=5000)
         page.get_by_role("checkbox", name="Weekly").click(timeout=5000)
         page.get_by_role("checkbox", name="Quarterly").click(timeout=5000)

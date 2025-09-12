@@ -15,7 +15,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("india")
     time.sleep(2)
     page.get_by_role("option", name="India Country").locator("div").click()
-    page.get_by_role("switch", name="Show Global & Touring in").click()
     page.get_by_role("button", name="Brand Show Global & Touring").click()
     page.get_by_role("checkbox", name="Branded").click()
     page.get_by_role("checkbox", name="Series").click()

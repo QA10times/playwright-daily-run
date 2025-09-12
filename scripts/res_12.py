@@ -18,7 +18,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("option", name="Arts & Crafts").get_by_role("checkbox").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(3)
-    page.get_by_role("link", name="2", exact=True).click()
+    page.get_by_role("link", name="Go to next page").click()
 
     # ---------------------
     context.close()

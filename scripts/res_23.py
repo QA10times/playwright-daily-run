@@ -27,7 +27,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Location").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(3)
-    page.get_by_role("link", name="2").click()
+    page.get_by_role("link", name="Go to next page").click()
 
 
 with sync_playwright() as playwright:

@@ -11,9 +11,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("button", name="Event Ranking").click()
-    page.get_by_role("switch", name="Rank").click()
     page.locator(".relative > .absolute").first.click()
-    page.get_by_role("switch", name="Show Estimated Exhibitors in").click()
     page.get_by_role("button", name="Estimated Exhibitors Show").click()
     page.get_by_role("checkbox", name="0-100", exact=True).click()
     page.get_by_role("checkbox", name="-1000").click()
@@ -21,7 +19,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("cell", name="Est. Exhibitors").locator("div").click()
     page.get_by_role("cell", name="Trust").locator("div").click()
-    page.get_by_role("link", name="2").click()
+    page.get_by_role("link", name="Go to next page").click()
 
     # ---------------------
     context.close()
