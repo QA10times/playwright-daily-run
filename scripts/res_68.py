@@ -3,7 +3,7 @@ import time
 from playwright.sync_api import Playwright, sync_playwright, expect, TimeoutError
 
 def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=True, slow_mo=500)
+    browser = playwright.chromium.launch(headless=False, slow_mo=500)
     context = browser.new_context()
     page = context.new_page()
 
@@ -19,7 +19,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("cell", name="Audience Zone").locator("div").click()
     page.get_by_role("cell", name="Audience Country").locator("div").click()
-    page.get_by_role("link", name="Go to next page").click()
 
 
     # ---------------------
