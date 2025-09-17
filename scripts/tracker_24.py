@@ -22,7 +22,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Location India").click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
-    page.get_by_role("button", name="Dates 1 Sep, 2025 - 31 Aug,").click()
+    page.get_by_role("button", name="Dates").click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
     page.get_by_role("textbox", name="Enter Tracker Name").fill("test")
     page.get_by_role("button", name="Save").click()
