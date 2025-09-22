@@ -19,7 +19,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("region", name="Map").click(position={"x": 334, "y": 294})
     page.get_by_role("region", name="Map").click(position={"x": 2, "y": 291})
     page.get_by_role("button", name="Event List").click()
-    page.locator("[id=\"radix-\\:r29\\:-content-map\"] div").filter(has_text=re.compile(r"^1$")).click()
     page.get_by_text("1").nth(2).click()
     page.get_by_role("tabpanel", name="Map").get_by_role("button").nth(2).click()
 
