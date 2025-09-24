@@ -34,7 +34,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Venue").first.click()
     page.get_by_role("link", name="back test").click()
     time.sleep(3)
-    page.get_by_role("link", name="Go to next page").click()
+    page.get_by_label("Go to next page").click()
 
     # ---------------------
     context.close()

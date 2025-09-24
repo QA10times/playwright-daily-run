@@ -13,6 +13,8 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Maturity").click()
     page.get_by_role("radio", name="New").click()
     page.get_by_role("button", name="Apply Filters").click()
+    page.get_by_role("tab", name="Table").click()
+    time.sleep(3)
     page.get_by_role("cell", name="Maturity").click()
 
     # ---------------------

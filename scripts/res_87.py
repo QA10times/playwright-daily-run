@@ -13,9 +13,10 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Event Type").click()
     page.get_by_role("checkbox", name="Select All").click()
     page.get_by_role("button", name="Apply Filters").click()
+    page.get_by_role("tab", name="Table").click()
     page.get_by_role("button", name="Popularity").click()
     page.get_by_role("dialog").get_by_role("button", name="Estimated Visitors").click()
-    page.get_by_role("link", name="Go to next page").click()
+    page.get_by_role("tabpanel", name="Table").get_by_label("Go to next page").click()
 
     # ---------------------
     context.close()

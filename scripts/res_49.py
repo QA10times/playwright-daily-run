@@ -21,6 +21,8 @@ def run(playwright: Playwright) -> None:
         page.get_by_role("checkbox", name="Quarterly").click(timeout=5000)
         page.get_by_role("checkbox", name="Bi-Annual").click(timeout=5000)
         page.get_by_role("button", name="Apply Filters").click(timeout=5000)
+        page.get_by_role("tab", name="Table").click()
+        time.sleep(3)
         page.get_by_role("cell", name="Forecasted").click(timeout=5000)
         page.get_by_role("cell", name="Frequency").click(timeout=5000)
 

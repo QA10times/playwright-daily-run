@@ -20,9 +20,11 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="-4").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(5)
+    page.get_by_role("tab", name="Table").click()
+    time.sleep(5)
     page.get_by_role("cell", name="Event Rating").locator("div").click()
     time.sleep(3)
-    page.get_by_role("link", name="Go to next page").click()
+    page.get_by_role("tabpanel", name="Table").get_by_label("Go to next page").click()
 
 
 with sync_playwright() as playwright:

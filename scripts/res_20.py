@@ -27,8 +27,9 @@ def run(playwright: Playwright) -> None:
     page.wait_for_timeout(3000)
 
     # Step 8: Go to page 2
-    page.get_by_role("link", name="Go to next page").click()
-    page.wait_for_timeout(3000)
+    page.get_by_role("tab", name="Table").click()
+    time.sleep(5)
+    page.get_by_role("tabpanel", name="Table").get_by_label("Go to next page").click()
 
     context.close()
     browser.close()

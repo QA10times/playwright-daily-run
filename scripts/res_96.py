@@ -20,7 +20,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("tab", name="Map").click()
     time.sleep(3)
     page.get_by_role("button", name="Event List").click()
-    page.get_by_role("link", name="Go to next page").click()
+    page.get_by_label("Go to next page").click()
     time.sleep(3)
     page.get_by_role("button").filter(has_text=re.compile(r"^$")).nth(4).click()
 

@@ -19,9 +19,10 @@ def run(playwright: Playwright) -> None:
     page.locator(".relative > .absolute").first.click()
     page.locator("div:nth-child(2) > span > .relative > .absolute").click()
     page.get_by_role("button", name="Apply Filters").click()
+    page.get_by_role("tab", name="Table").click()
     page.get_by_role("cell", name="Inbound").locator("div").click()
     page.get_by_role("cell", name="International", exact=True).locator("div").click()
-    page.get_by_role("link", name="Go to next page").click()
+    page.get_by_role("tabpanel", name="Table").get_by_label("Go to next page").click()
 
     # ---------------------
     context.close()
