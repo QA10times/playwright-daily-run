@@ -8,6 +8,7 @@ def run(playwright: Playwright) -> None:
 
     page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
     time.sleep(5)
+    page.goto("https://gtm.whr.ai/internal/search/events")
 
     try:
         page.get_by_role("button", name="Skip").click(timeout=5000)

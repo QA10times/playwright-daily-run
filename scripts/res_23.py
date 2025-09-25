@@ -12,6 +12,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
 
     # Step 2: Click Skip
+    page.goto("https://geo.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
 
     # Step 3: Click 'Location' button
