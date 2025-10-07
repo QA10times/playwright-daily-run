@@ -34,7 +34,7 @@ def run(playwright: Playwright) -> None:
     page.locator("button:has(svg.lucide-bookmark)").first.click()
     page.get_by_role("radio", name="Bookmark").click()
     page.get_by_role("button", name="Submit").click()
-    time.sleep(3)
+    time.sleep(6)
     page.get_by_role("button", name="Bookmarked Events").click()
     page.get_by_role("button", name="Share").click()
     page.get_by_role("textbox", name="Invite others by email").click()
