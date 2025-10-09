@@ -17,8 +17,6 @@ def run(playwright: Playwright) -> None:
     time.sleep(2)
     page.get_by_role("option", name="India Country").locator("div").click()
     page.get_by_role("button", name="Event Analytics Show scores").click()
-    page.locator(".relative > .absolute").first.click()
-    page.locator("div:nth-child(2) > span > .relative > .absolute").click()
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("tab", name="Table").click()
     page.get_by_role("cell", name="Inbound").locator("div").click()
