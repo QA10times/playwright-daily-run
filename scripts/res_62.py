@@ -12,7 +12,6 @@ def run(playwright: Playwright) -> None:
     page.goto("https://gtm.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("button", name="Event Ranking").click()
-    page.locator(".relative > .absolute").first.click()
     page.get_by_role("button", name="Estimated Exhibitors Show").click()
     page.get_by_role("checkbox", name="0-100", exact=True).click()
     page.get_by_role("checkbox", name="-1000").click()
