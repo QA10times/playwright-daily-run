@@ -32,8 +32,8 @@ jobs:
           rm -f logs/failures.txt
           failed=0
           for file in scripts/*.py; do
-            # Skip dashboard 4.py unless it is the 5:30 AM schedule
-            if [[ "$(basename "$file")" == "dashboard 4.py" && "$GITHUB_EVENT_NAME" == "schedule" && "$GITHUB_EVENT_SCHEDULE" != "0 0 * * *" ]]; then
+            # Skip dashboard_4.py unless it is the 5:30 AM schedule
+            if [[ "$(basename "$file")" == "dashboard_4.py" && "$GITHUB_EVENT_NAME" == "schedule" && "$GITHUB_EVENT_SCHEDULE" != "0 0 * * *" ]]; then
               echo "Skipping $file for this schedule"
               continue
             fi
