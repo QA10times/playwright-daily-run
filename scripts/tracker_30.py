@@ -43,7 +43,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Table").click()
     page.get_by_text("Est. Visitors").click()
     page.get_by_text("Est. Exhibitors").click()
-    page.get_by_text("Rank").click()
+    page.get_by_text("Rank", exact=True).click()
     page.get_by_text("Event Rating").click()
     page.get_by_text("Trust").click()
     page.get_by_text("Frequency").click()
