@@ -32,15 +32,23 @@ jobs:
           rm -f logs/failures.txt
           failed=0
 
-          # Detect which schedule triggered (UTC time)
+          # Detect current UTC time
           hour=$(date -u +%H)
           minute=$(date -u +%M)
-          CURRENT_SCHEDULE="$minute $hour * * *"
-          echo "Detected UTC schedule: ${CURRENT_SCHEDULE}"
+          echo "Current UTC time: ${hour}:${minute}"
+
+          # Treat 00:00–02:59 UTC as the '5:30 AM IST' schedule
+          if (( 0 <= hour && hour < 3 )); then
+            IS_MORNING_RUN=true
+          else
+            IS_MORNING_RUN=false
+          fi
+
+          echo "Is morning run (5:30 AM IST window)? ${IS_MORNING_RUN}"
 
           for file in scripts/*.py; do
-            # Skip dashboard_4.py unless it's the 5:30 AM IST run (0 0 * * * UTC)
-            if [[ "$(basename "$file")" == "dashboard_4.py" && "${CURRENT_SCHEDULE}" != "0 0 * * *" ]]; then
+            # Skip dashboard_4.py unless it's the morning window
+            if [[ "$(basename "$file")" == "dashboard_4.py" && "$IS_MORNING_RUN" != "true" ]]; then
               echo "Skipping $file for this schedule"
               continue
             fi
