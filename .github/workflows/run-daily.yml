@@ -12,10 +12,6 @@ jobs:
   run-scripts:
     runs-on: ubuntu-latest
 
-    env:
-      # Pass cron pattern as an environment variable
-      CURRENT_SCHEDULE: ${{ github.event.schedule }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -36,10 +32,14 @@ jobs:
           rm -f logs/failures.txt
           failed=0
 
-          echo "Triggered by schedule: ${CURRENT_SCHEDULE}"
+          # Detect which schedule triggered (UTC time)
+          hour=$(date -u +%H)
+          minute=$(date -u +%M)
+          CURRENT_SCHEDULE="$minute $hour * * *"
+          echo "Detected UTC schedule: ${CURRENT_SCHEDULE}"
 
           for file in scripts/*.py; do
-            # Skip dashboard_4.py unless it's the 5:30 AM (0 0 * * *) schedule
+            # Skip dashboard_4.py unless it's the 5:30 AM IST run (0 0 * * * UTC)
             if [[ "$(basename "$file")" == "dashboard_4.py" && "${CURRENT_SCHEDULE}" != "0 0 * * *" ]]; then
               echo "Skipping $file for this schedule"
               continue
