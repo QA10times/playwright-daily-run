@@ -31,9 +31,10 @@ jobs:
           mkdir -p logs
           rm -f logs/failures.txt
           failed=0
+          echo "Triggered by schedule: ${CURRENT_SCHEDULE}"
           for file in scripts/*.py; do
             # Skip dashboard_4.py unless it is the 5:30 AM schedule
-            if [[ "$(basename "$file")" == "dashboard_4.py" && "$GITHUB_EVENT_NAME" == "schedule" && "$GITHUB_EVENT_SCHEDULE" != "30 7 * * *" ]]; then
+            if [[ "$(basename "$file")" == "dashboard_4.py" && "$GITHUB_EVENT_NAME" == "schedule" && "${CURRENT_SCHEDULE}" != "0 0 * * *" ]]; then
               echo "Skipping $file for this schedule"
               continue
             fi
