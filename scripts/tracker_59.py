@@ -44,7 +44,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Configurations").click()
     time.sleep(5)
     page.get_by_role("button", name="Maturity").click()
-    page.get_by_role("radio", name="Growing").click()
+    page.get_by_role("radio", name="Established").click()
     page.get_by_role("button", name="Save").click()
     time.sleep(5)
     page.get_by_role("button", name="Upcoming Events").click()
