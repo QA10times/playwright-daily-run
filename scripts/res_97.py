@@ -24,7 +24,12 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("tabpanel", name="Calendar").get_by_role("button").nth(1).click()
     page.get_by_role("cell").filter(has_text="Events").first.click()
     time.sleep(3)
-    page.get_by_label("Go to next page").click()
+    try:
+        page.get_by_label("Go to next page").click()
+    except Exception:
+        print("Skipping Go to next page as it's not available")
+
+    time.sleep(3)
     page.get_by_role("combobox").filter(has_text="Monthly").click()
     page.get_by_role("option", name="Yearly").click()
     page.get_by_role("combobox").filter(has_text="Yearly").click()

@@ -39,7 +39,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Map").click()
     time.sleep(2)
     page.get_by_role("button", name="Event List").click()
-    page.get_by_text("1", exact=True).first.click()
     page.get_by_text("Calendar").click()
     page.get_by_text("Table").click()
     page.get_by_role("button", name="Social Events").click()

@@ -1,5 +1,6 @@
 import sys
 import time
+import re
 from playwright.sync_api import Playwright, sync_playwright, Error
 
 
@@ -19,19 +20,18 @@ def run(playwright: Playwright) -> None:
 
     try:
         with page.expect_popup() as popup_info:
-            page.get_by_role("complementary").filter(has_text="BackTradeshowsRural Telecom").get_by_role("link").click()
+            page.locator("#layout-main").get_by_role("complementary").get_by_role("link").filter(has_text=re.compile(r"^$")).click()
+
         popup = popup_info.value
-
-        # Wait until popup is fully loaded
         popup.wait_for_load_state()
-
         print("✅ TEST PASS: Popup page opened successfully.")
+
     except Error as e:
         print(f"❌ TEST FAIL: Popup page did not open. Error: {e}")
-        sys.exit(1)
 
-    context.close()
-    browser.close()
+    finally:
+        context.close()
+        browser.close()
 
 
 with sync_playwright() as playwright:

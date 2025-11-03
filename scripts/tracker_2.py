@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.mouse.move(0, 500)
     page.get_by_role("link", name="Tracker").click()
     page.get_by_role("button", name="Skip").click()
-    page.get_by_role("textbox", name="Enter Web URL").click()
+    page.locator("#brandBrief").get_by_role("button", name="Generate").click()
 
     # ---------------------
     context.close()

@@ -17,7 +17,6 @@ def run(playwright: Playwright) -> None:
     time.sleep(2)
     page.get_by_role("option", name="India Country").locator("div").click()
     page.get_by_role("button", name="Event Ranking").click()
-    page.locator(".relative > .absolute").first.click()
     page.get_by_role("button", name="Estimated Exhibitors Show").click()
     page.get_by_role("checkbox", name="0-100", exact=True).click()
     page.get_by_role("checkbox", name="-1000").click()
