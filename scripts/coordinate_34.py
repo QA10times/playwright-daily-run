@@ -1,3 +1,4 @@
+
 import re
 import time
 from playwright.sync_api import Playwright, sync_playwright, expect, TimeoutError
@@ -16,7 +17,9 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("textbox", name="Search Events").click()
     page.get_by_label("", exact=True).fill("test")
+    time.sleep(3)
     page.get_by_label("Suggestions").get_by_text("test").first.click()
+    time.sleep(3)
     page.get_by_role("heading", name="test").click()
     page.get_by_text("Team Requests").click()
     # ---------------------
