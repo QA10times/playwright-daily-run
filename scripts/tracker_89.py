@@ -55,9 +55,9 @@ def run(playwright: Playwright) -> None:
     print("First event name:", name)
 
     event_link.click()
-    time.sleep(5)
+    time.sleep(10)
 
-    page.get_by_text("Tradeshows").click()
+    page.get_by_text("Tradeshows").first.click()
 
     # ---------------------
     context.close()
