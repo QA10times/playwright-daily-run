@@ -16,6 +16,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("option", name="India Country").locator("div").click()
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("button", name="Apply Filters").click()
+    time.sleep(3)
     page.get_by_role("button", name="Save").click()
     page.get_by_role("textbox", name="Enter Tracker Name").fill("test")
     page.get_by_role("button", name="Save").click()
