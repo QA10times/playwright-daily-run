@@ -23,7 +23,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Take a note").click()
     page.get_by_role("textbox", name="Take a note").fill("test")
     page.get_by_role("button", name="Send send").click()
-    page.locator("#layout-main header").get_by_role("button").filter(has_text=re.compile(r"^$")).click()
+    page.locator("#layout-main header").get_by_role("button").filter(has_text=re.compile(r"^$")).first.click()
     # ---------------------
     context.close()
     browser.close()
