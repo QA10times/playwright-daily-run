@@ -20,6 +20,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("link", name="people template Venue Tracker").click()
     page.get_by_role("button", name="Skip").click()
+    page.get_by_role("tab", name="Center Point & Radius").click()
     page.get_by_role("combobox", name="E.g. Novotel, Hyderabad").click()
     page.get_by_role("combobox", name="E.g. Novotel, Hyderabad").fill("unit")
     page.get_by_text("Unity", exact=True).click()
