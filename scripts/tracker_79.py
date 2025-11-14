@@ -39,7 +39,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Frequency").click()
     page.get_by_text("Forecasted").click()
     page.get_by_text("Inbound").click()
-    page.get_by_text("International").click()
+    page.get_by_text("International").first.click()
     page.get_by_text("Est. Impact ($)").click()
     page.get_by_role("link", name="Configurations").click()
     time.sleep(3)
