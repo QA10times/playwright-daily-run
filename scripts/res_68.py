@@ -17,6 +17,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("searchbox", name="Search").click()
     page.get_by_role("searchbox", name="Search").fill("india")
     page.get_by_label("Audience Country").get_by_text("India", exact=True).click()
+    time.sleep(3)
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("tab", name="Table").click()
     page.get_by_role("cell", name="Audience Zone").locator("div").click()
