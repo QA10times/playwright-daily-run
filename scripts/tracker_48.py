@@ -16,7 +16,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("button", name="Create").click()
     page.get_by_role("button", name="Skip").click()
-    page.get_by_role("link", name="Competitor Track your competitor").click()
+    page.get_by_role("link", name="people template Company &").click()
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("textbox", name="Competitor Name or Website").click()
     page.get_by_role("textbox", name="Competitor Name or Website").fill("cvent")
