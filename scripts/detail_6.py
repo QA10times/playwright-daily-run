@@ -8,7 +8,7 @@ def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=True, slow_mo=500)
     context = browser.new_context()
     page = context.new_page()
-    page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
+    page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=gtm")
     time.sleep(5)
     page.goto("https://gtm.whr.ai/internal/event/a07b2635-2fd1-5038-ab1f-143a3eec4de4")
     page.get_by_role("button", name="Bookmark Event").click()

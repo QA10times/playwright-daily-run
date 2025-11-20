@@ -7,7 +7,7 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
+    page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=gtm")
     time.sleep(5)
     page.goto("https://gtm.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
@@ -17,6 +17,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("searchbox", name="Search").click()
     page.get_by_role("searchbox", name="Search").fill("india")
     page.get_by_label("Audience Country").get_by_text("India", exact=True).click()
+    time.sleep(3)
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("tab", name="Table").click()
     page.get_by_role("cell", name="Audience Zone").locator("div").click()

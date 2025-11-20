@@ -10,7 +10,7 @@ def run(playwright: Playwright) -> None:
     page = context.new_page()
 
     print("✅ Navigating to event page")
-    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
+    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=geo")
     time.sleep(5)
     page.goto("https://geo.whr.ai/internal/event/4b00a3c7-26a1-5350-bc21-9abe9c97ee7a")
     page.wait_for_timeout(5000)  # Wait for full load

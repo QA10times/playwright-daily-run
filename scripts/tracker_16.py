@@ -7,7 +7,7 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
+    page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=gtm")
     time.sleep(5)
     page.goto("https://gtm.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
@@ -35,6 +35,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Submit").click()
     time.sleep(3)
     page.get_by_role("button", name="Bookmarked Events").click()
+    time.sleep(3)
     page.get_by_role("cell").filter(has_text=re.compile(r"^$")).get_by_role("button").click()
     page.get_by_role("radio", name="Un-Bookmark").click()
     page.get_by_role("button", name="Submit").click()

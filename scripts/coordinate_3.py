@@ -7,7 +7,7 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
+    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=geo")
     time.sleep(5)
     page.goto("https://geo.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.get_by_role("textbox", name="Search Events").click()
-    page.get_by_label("", exact=True).fill("london ")
+    page.get_by_label(", exact=True).fill("london ")
     page.get_by_label("Suggestions").get_by_text("London International Health").click()
     page.get_by_role("button", name="Type").click()
     page.get_by_role("button", name="Type").click()
