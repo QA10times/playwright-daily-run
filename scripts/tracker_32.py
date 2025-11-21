@@ -61,6 +61,7 @@ def run(playwright: Playwright) -> None:
 
     time.sleep(3)
     page.get_by_role("button", name="Bookmarked Events").click()
+    time.sleep(3)
     page.get_by_role("cell").filter(has_text=re.compile(r"^$")).get_by_role("button").click()
     page.get_by_role("radio", name="Un-Bookmark").click()
     page.get_by_role("button", name="Submit").click()
