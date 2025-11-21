@@ -8,7 +8,7 @@ def run(playwright: Playwright) -> None:
     page = context.new_page()
     page.goto("https://gtm.whr.ai/signin")
     page.get_by_placeholder("Email").click()
-    page.get_by_placeholder("Email").fill(")
+    page.get_by_placeholder("Email").fill("")
     page.get_by_role("button", name="Sign In").click()
 
     # ---------------------

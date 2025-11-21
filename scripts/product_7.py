@@ -8,7 +8,7 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=geo")
+    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476")
     time.sleep(5)
     page.goto("https://geo.whr.ai/internal/search/events")
 
@@ -24,7 +24,7 @@ def run(playwright: Playwright) -> None:
     # Locate the input field and update value
     input_field = page.locator("div:nth-child(4) > div:nth-child(2) > .p-2").first
     input_field.click()
-    input_field.fill(")  # Clear existing text
+    input_field.fill("")  # Clear existing text
     input_field.click()
     input_field.fill("test")
 

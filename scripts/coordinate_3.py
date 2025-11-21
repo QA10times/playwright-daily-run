@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.get_by_role("textbox", name="Search Events").click()
-    page.get_by_label(", exact=True).fill("london ")
+    page.get_by_label("", exact=True).fill("london ")
     page.get_by_label("Suggestions").get_by_text("London International Health").click()
     page.get_by_role("button", name="Type").click()
     page.get_by_role("button", name="Type").click()
