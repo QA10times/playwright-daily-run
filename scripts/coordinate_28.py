@@ -15,11 +15,8 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.get_by_role("textbox", name="Search Events").click()
-<<<<<<< HEAD
-    page.get_by_label(", exact=True).fill("indian han")
-=======
     page.get_by_label("", exact=True).fill("indian han")
->>>>>>> 2b388f830d6de749f4bc183a576a27ba734f9e39
+    page.get_by_label("", exact=True).fill("indian han")
     time.sleep(3)
     page.get_by_text("Indian Handicrafts & Gifts").click()
     time.sleep(3)
