@@ -27,6 +27,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_text("Noir", exact=True).click()
     page.get_by_role("button", name="Save Event").click()
+    time.sleep(5)
     # ---------------------
     context.close()
     browser.close()
