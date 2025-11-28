@@ -20,6 +20,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Speaking Opportunity").click()
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("link", name="Top Voice in Education").click()
+    time.sleep(3)
     page.get_by_role("switch", name="Show ratings").click()
     page.get_by_role("switch", name="Enable/Disable all advanced").click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
