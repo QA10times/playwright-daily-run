@@ -9,7 +9,7 @@ def run(playwright: Playwright) -> None:
 
     print("✅ Opening Login Page")
     page.goto(
-        "https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476"
+        "https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=geo"
     )
     page.wait_for_timeout(5000)
 
@@ -24,7 +24,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Show details").first.click()
 
     print("✅ Clicking Email link")
-    page.get_by_text("ajswing786@proton.me").click()
+    page.get_by_text("michelle.swayze@informa.com").click()
 
     print("✅ Clicking 'Read More'")
     page.get_by_text("Read More").click()
@@ -36,7 +36,7 @@ def run(playwright: Playwright) -> None:
 
     # Define expected content you want to confirm is present after clicks
     # Example: text that should appear after Read More expands (replace with your actual expected content)
-    EXPECTED_TEXT = "ajswing786@proton.me"
+    EXPECTED_TEXT = "michelle.swayze@informa.com"
 
     print(f"\n✅ Verifying if expected text '{EXPECTED_TEXT}' is present on page...")
     try:

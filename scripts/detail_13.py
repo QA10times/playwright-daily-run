@@ -9,7 +9,7 @@ def run(playwright: Playwright) -> None:
 
     print("✅ Opening Login Page")
     page.goto(
-        "https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476"
+        "https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=geo"
     )
     page.wait_for_timeout(5000)
 

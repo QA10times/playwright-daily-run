@@ -31,7 +31,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Upcoming Events").click()
     page.get_by_text("Table").click()
     time.sleep(5)
-    page.get_by_text("Rank").click()
+    page.get_by_text("Rank").first.click()
     page.get_by_text("Event Rating").click()
     page.get_by_text("Trust").click()
     page.get_by_text("Frequency").click()
