@@ -28,6 +28,8 @@ jobs:
 
       - name: Run all scripts and collect errors
         run: |
+          set -eo pipefail
+
           mkdir -p logs
           rm -f logs/failures.txt
           failed=0
@@ -47,22 +49,45 @@ jobs:
           echo "Is morning run (5:30 AM IST window)? ${IS_MORNING_RUN}"
 
           for file in scripts/*.py; do
+            # If no python files exist, skip
+            if [ ! -e "$file" ]; then
+              echo "No scripts found in scripts/; skipping."
+              break
+            fi
+
             # Skip dashboard_4.py unless it's the morning window
             if [[ "$(basename "$file")" == "dashboard_4.py" && "$IS_MORNING_RUN" != "true" ]]; then
               echo "Skipping $file for this schedule"
               continue
             fi
 
-            echo "Running $file"
-            if ! python "$file" >> logs/$(basename "$file").log 2>&1; then
-              echo "$file FAILED" >> logs/failures.txt
-              failed=1
+            logname="logs/$(basename "$file").log"
+            echo "------------------------------------------------------------" | tee -a "$logname"
+            echo "Running $file (Attempt 1) at $(date -u '+%Y-%m-%d %H:%M:%S UTC')" | tee -a "$logname"
+
+            if python "$file" >> "$logname" 2>&1; then
+              echo "$file SUCCESS on first attempt" | tee -a "$logname"
+              continue
             fi
+
+            echo "$file failed on first attempt. Retrying in 10s..." | tee -a "$logname"
+            sleep 10
+
+            echo "Running $file (Attempt 2) at $(date -u '+%Y-%m-%d %H:%M:%S UTC')" | tee -a "$logname"
+            if python "$file" >> "$logname" 2>&1; then
+              echo "$file SUCCESS on retry" | tee -a "$logname"
+              continue
+            fi
+
+            echo "$file FAILED after retry" | tee -a "$logname" | tee -a logs/failures.txt
+            failed=1
           done
 
           if [ $failed -eq 1 ]; then
-            echo "Some scripts failed. See logs/failures.txt"
+            echo "Some scripts failed even after retry. See logs/failures.txt"
             exit 1
+          else
+            echo "All scripts completed successfully (after retries if any)."
           fi
 
       - name: Upload logs as artifact
