@@ -22,7 +22,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("tab", name="Center Point & Radius").click()
     page.get_by_role("combobox", name="E.g. Novotel, Hyderabad").click()
-    page.get_by_role("combobox", name="E.g. Novotel, Hyderabad").fill("unit")
+    page.get_by_role("combobox", name="E.g. Novotel, Hyderabad").fill("unite")
     page.get_by_text("Unite", exact=True).click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
