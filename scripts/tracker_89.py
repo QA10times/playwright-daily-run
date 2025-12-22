@@ -23,7 +23,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Search By Event Name").fill("magic")
     page.get_by_text("MAGIC LAS VEGAS").click()
     page.get_by_role("switch", name="Show ratings").click()
-    page.get_by_role("switch", name="Enable/Disable all advanced").click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
     page.get_by_role("textbox", name="Enter Tracker Name").fill("test")
     page.get_by_role("button", name="Save").click()

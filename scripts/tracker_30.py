@@ -29,7 +29,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Competitor Name or Website").fill("allevents.in")
     page.get_by_text("+", exact=True).click()
     page.get_by_role("switch", name="Show ratings").click()
-    page.get_by_role("switch", name="Enable/Disable all advanced").click()
     page.get_by_role("button", name="Estimated Visitors").click()
     page.get_by_role("checkbox", name="Nano").click()
     page.get_by_role("checkbox", name="Small").click()

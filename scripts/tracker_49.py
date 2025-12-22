@@ -25,7 +25,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Company Name").fill("Un-School of Disruptive Design")
     page.get_by_text("+", exact=True).click()
     page.get_by_role("switch", name="Show ratings").click()
-    page.get_by_role("switch", name="Enable/Disable all advanced").click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
     page.get_by_role("textbox", name="Enter Tracker Name").fill("test")
     page.get_by_role("button", name="Save").click()

@@ -24,7 +24,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox", name="E.g. Novotel, Hyderabad").fill("unite")
     page.get_by_text("Unite", exact=True).click()
     page.get_by_role("button", name="12 months").click()
-    page.get_by_role("switch", name="Enable/Disable all advanced").click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
     page.get_by_role("textbox", name="Enter Tracker Name").fill("test")
     page.get_by_role("button", name="Save").click()
