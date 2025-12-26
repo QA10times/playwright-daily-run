@@ -21,7 +21,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Event POC").click()
 
     print("✅ Clicking 'Show details'")
-    page.get_by_role("button", name="Show details").first.click()
+    page.get_by_role("button", name="View Contact").first.click()
 
     print("✅ Clicking Email link")
     page.get_by_text("michelle.swayze@informa.com").click()
