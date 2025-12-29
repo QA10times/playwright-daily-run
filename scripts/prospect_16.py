@@ -18,7 +18,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox").filter(has_text="Category1").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(5)
-    page.wait_for_load_state("networkidle")
 
     card = page.locator("a.block[href^='/internal/company/']").first
     card.wait_for(state="attached", timeout=60000)
