@@ -16,10 +16,10 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox", name="Search Companies").click()
     page.get_by_role("combobox", name="Search Companies").fill("bmc training")
     time.sleep(3)
-    page.locator("#event-option-3").get_by_text("BMC Training").click()
+    page.get_by_role("option", name="BMC Training London, United").locator("span").click()
     page.get_by_role("link", name="BMC Training logo BMC").click()
-    time.sleep(3)
-    page.get_by_text("BMC Training").click()
+    time.sleep(5)
+    page.get_by_text("BMC Training", exact=True).click()
 
     # ---------------------
     context.close()

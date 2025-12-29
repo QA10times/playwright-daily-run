@@ -40,6 +40,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="200k+").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(3)
+
     card = page.locator("a.block[href^='/internal/company/']").first
     card.wait_for(state="attached", timeout=60000)
 
@@ -48,7 +49,6 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("button", name="medium").click()
     page.get_by_role("button", name="dormant").click()
-    page.get_by_text("show address").click()
     page.get_by_text("USA").click()
     label = page.get_by_text("Exhibited", exact=True).first
     card = label.locator("xpath=ancestor::div[contains(@class,'flex')]").first

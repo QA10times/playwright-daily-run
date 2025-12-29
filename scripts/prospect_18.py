@@ -40,15 +40,15 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="200k+").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(3)
-    page.wait_for_load_state("networkidle")
 
     card = page.locator("a.block[href^='/internal/company/']").first
     card.wait_for(state="attached", timeout=60000)
-    card.evaluate("el => el.click()")
+
+    with page.expect_navigation(url=re.compile(r"/internal/company/")):
+        card.evaluate("el => el.click()")
     time.sleep(3)
     page.get_by_role("button", name="medium").click()
     page.get_by_role("button", name="dormant").click()
-    page.get_by_text("show address").click()
     page.get_by_text("USA").click()
     label = page.get_by_text("Exhibited", exact=True).first
     card = label.locator("xpath=ancestor::div[contains(@class,'flex')]").first
