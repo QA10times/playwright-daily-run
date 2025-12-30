@@ -27,7 +27,6 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("button", name="more events").click()
     time.sleep(2)
-    page.get_by_role("region", name="Map").click()
     page.get_by_text("Events Attended").click()
     page.get_by_text("Most Attended in").click()
     page.get_by_text("Other Countries").click()

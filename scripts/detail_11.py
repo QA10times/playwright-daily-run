@@ -20,9 +20,6 @@ def run(playwright: Playwright) -> None:
     count = links.count()
     print(f"Found {count} matching links")
 
-    for i in range(count):
-        links.nth(i).click()
-
     # ---------------------
     context.close()
     browser.close()
