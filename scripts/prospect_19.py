@@ -19,7 +19,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("option", name="United States Country").click()
     page.get_by_role("button", name="Company Location United States").click()
     page.get_by_role("button", name="Participation Role").click()
-    page.get_by_role("checkbox", name="Exhibitor").click()
+    page.get_by_role("checkbox", name="Exhibit").click()
     page.get_by_role("button", name="Participation Role").click()
     page.get_by_role("button", name="Participation Frequency").click()
     page.get_by_role("checkbox", name="High", exact=True).click()
@@ -50,7 +50,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="medium").click()
     page.get_by_role("button", name="dormant").click()
     page.get_by_text("USA").click()
-    label = page.get_by_text("Exhibited", exact=True).first
+    label = page.get_by_text("Exhibit", exact=False).first
     card = label.locator("xpath=ancestor::div[contains(@class,'flex')]").first
 
     count = int(re.search(r"\d+", card.inner_text()).group())

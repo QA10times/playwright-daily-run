@@ -31,7 +31,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Most Attended in").click()
     page.get_by_text("Other Countries").click()
     page.get_by_role("combobox").click()
-    page.get_by_role("checkbox", name="Exhibitor").click()
+    page.get_by_role("checkbox", name="Exhibit").click()
     page.get_by_role("combobox").click()
     page.get_by_text("exhibitor").click()
 
