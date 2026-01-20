@@ -27,7 +27,7 @@ def run(playwright: Playwright) -> None:
         page.get_by_role("link", name="MAGIC LAS VEGAS").click()
     page1 = page1_info.value
     page1.goto("https://geo.whr.ai/internal/event/4b00a3c7-26a1-5350-bc21-9abe9c97ee7a")
-    page1.get_by_text("MAGIC LAS VEGAS", exact=True).click()
+    page1.get_by_text("MAGIC LAS VEGAS", exact=True).first.click()
 
     # ---------------------
     context.close()

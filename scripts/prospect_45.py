@@ -33,7 +33,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox").click()
     page.get_by_role("checkbox", name="Exhibit").click()
     page.get_by_role("combobox").click()
-    page.get_by_text("exhibitor").click()
+    page.get_by_text("exhibitor").first.click()
 
 
 

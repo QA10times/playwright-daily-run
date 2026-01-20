@@ -21,7 +21,9 @@ def run(playwright: Playwright) -> None:
 
     card = page.locator("a.block[href^='/internal/company/']").first
     card.wait_for(state="attached", timeout=60000)
-    card.evaluate("el => el.click()")
+
+    with page.expect_navigation(url=re.compile(r"/internal/company/")):
+        card.evaluate("el => el.click()")
 
     time.sleep(3)
     page.get_by_text("Auto & Automotive").click()
