@@ -18,7 +18,7 @@ def run(playwright: Playwright) -> None:
     page.wait_for_timeout(3000)
 
     print("✅ Clicking 'Event POC'")
-    page.get_by_role("button", name="Event POC").click()
+    page.get_by_role("button", name="Event Contact").click()
 
     print("✅ Clicking 'Show details'")
     page.get_by_role("button", name="View Contact").first.click()

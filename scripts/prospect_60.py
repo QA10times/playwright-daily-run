@@ -19,7 +19,7 @@ def run(playwright: Playwright) -> None:
     with page.expect_navigation(url=re.compile(r"/internal/company/")):
         card.evaluate("el => el.click()")
     time.sleep(3)
-    page.get_by_role("button", name="Company POC").click()
+    page.get_by_role("button", name="Company Contact").click()
     page.get_by_role("button", name="View Contact").first.click()
     page.locator("div").filter(has_text=re.compile(r"^Unlocked$")).click()
 
