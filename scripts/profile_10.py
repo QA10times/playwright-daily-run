@@ -8,7 +8,7 @@ def run(playwright: Playwright) -> None:
     page = context.new_page()
 
     # Go to login page
-    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=c+coFkahU0RlPoDkvRvieFxlDK5Oki9tmdNZlTXmM+w=&uid=69574238&platform=geo")
+    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=geo")
     time.sleep(5)
 
     # Go to profile page
