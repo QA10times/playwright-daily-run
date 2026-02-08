@@ -15,6 +15,8 @@ def run(playwright: Playwright) -> None:
     phone_input = page.locator("input[name='phoneNumber']")
     phone_input.click()
     phone_input.type("8702522256")
+    page.get_by_role("textbox", name="Describe what you need...").click()
+    page.get_by_role("textbox", name="Describe what you need...").fill("hi test")
 
     # Dismiss any popup/dialog
     page.once("dialog", lambda dialog: dialog.dismiss())
