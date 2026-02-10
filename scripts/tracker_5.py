@@ -33,7 +33,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("link", name="test").click()
     time.sleep(3)
-    page.get_by_text("NNishantCreated today").first.click()
+    page.get_by_text("nishant choudhary").first.click()
     page.get_by_role("link", name="test").click()
     time.sleep(3)
     page.get_by_label("Go to next page").click()
