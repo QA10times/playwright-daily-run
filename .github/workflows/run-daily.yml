@@ -25,6 +25,7 @@ jobs:
         run: |
           pip install playwright
           playwright install
+          playwright install-deps
 
       - name: Run all scripts and collect errors
         run: |
