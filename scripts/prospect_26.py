@@ -23,11 +23,12 @@ def run(playwright: Playwright) -> None:
     with page.expect_navigation(url=re.compile(r"/internal/company/")):
         card.evaluate("el => el.click()")
     time.sleep(3)
+    page.get_by_role("textbox", name="Search by Event name").click()
+    page.get_by_role("textbox", name="Search by Event name").fill("magic las vegas")
     with page.expect_popup() as page1_info:
         page.get_by_role("link", name="MAGIC LAS VEGAS").click()
     page1 = page1_info.value
-    page1.goto("https://gtm.whr.ai/internal/event/4b00a3c7-26a1-5350-bc21-9abe9c97ee7a")
-    page1.get_by_text("MAGIC LAS VEGAS", exact=True).first.click()
+    page1.get_by_role("button", name="Event Contact").click()
 
     # ---------------------
     context.close()
