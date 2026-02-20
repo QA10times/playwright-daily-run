@@ -23,6 +23,7 @@ def run(playwright: Playwright) -> None:
     with page.expect_navigation(url=re.compile(r"/internal/company/")):
         card.evaluate("el => el.click()")
     time.sleep(3)
+    page.get_by_role("tab", name="Past").click()
     page.get_by_role("textbox", name="Search by Event name").click()
     page.get_by_role("textbox", name="Search by Event name").fill("magic las vegas")
     with page.expect_popup() as page1_info:
