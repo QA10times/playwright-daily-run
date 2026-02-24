@@ -53,10 +53,13 @@ def run(playwright: Playwright) -> None:
     name = event_link.inner_text()
     print("First event name:", name)
 
-    event_link.click()
-    time.sleep(10)
+    with context.expect_page() as new_page_info:
+        event_link.click()
 
-    page.get_by_text("Tradeshows").first.click()
+    new_page = new_page_info.value
+    new_page.wait_for_load_state()
+
+    new_page.get_by_text("Tradeshows").first.click()
 
     # ---------------------
     context.close()
