@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox").filter(has_text="Category").click()
     page.get_by_role("option", name="Select All").get_by_role("checkbox").click()
     page.get_by_role("button", name="Save").click()
-    page.get_by_role("region", name="Notifications (F8)").get_by_role("button").click()
+    
 
 
     # ---------------------

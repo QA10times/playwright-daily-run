@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     page.mouse.move(0, 500)
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
-    page.locator("div").filter(has_text=re.compile(r"^Hot$")).click()
+    page.locator("div").filter(has_text=re.compile(r"^Hot$")).get_by_role("img").click()
     page.get_by_role("heading", name="Customise to your needs").click()
     # ---------------------
     context.close()

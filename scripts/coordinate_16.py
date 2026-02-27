@@ -18,7 +18,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Add", exact=True).click()
     page.get_by_role("button", name="Add Manually").click()
     page.get_by_text("Conference", exact=True).click()
-    page.get_by_text("Warm").nth(1).click()
+    page.get_by_text("warm").nth(2).click()
     page.get_by_role("textbox", name="Event Name").click()
     page.get_by_role("textbox", name="Event Name").fill("test")
     page.get_by_text("Add Event Location").click()
