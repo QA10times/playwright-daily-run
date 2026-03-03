@@ -26,7 +26,7 @@ def run(playwright: Playwright) -> None:
         card.evaluate("el => el.click()")
 
     time.sleep(3)
-    page.get_by_text("Auto & Automotive").click()
+    page.get_by_text("Auto & Automotive").first.click()
 
     # ---------------------
     context.close()

@@ -19,7 +19,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.locator(".hidden > .flex-1 > .md\\:px-6").click()
     page.get_by_role("region", name="Map").click(position={"x":1,"y":289})
-    page.get_by_role("button", name="Event List").click()
+    page.get_by_role("button", name="Event List").nth(1).click()
 
     # ---------------------
     context.close()
