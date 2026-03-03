@@ -19,7 +19,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("option", name="BMC Training London, United").locator("span").click()
     page.get_by_role("link", name="BMC Training logo BMC").click()
     time.sleep(5)
-    page.get_by_text("BMC Training", exact=True).click()
+    page.get_by_text("BMC Training", exact=True).first.click()
 
     # ---------------------
     context.close()
