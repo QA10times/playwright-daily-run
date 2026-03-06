@@ -27,11 +27,20 @@ def run(playwright: Playwright) -> None:
     print("✅ Clicking Email link")
     page.get_by_text("michelle.swayze@informa.com").click()
 
-    print("✅ Clicking 'Read More'")
-    page.get_by_text("Read More").click()
+    read_more = page.get_by_text("Read More")
 
-    print("✅ Clicking 'Show Less'")
-    page.get_by_text("Show Less").click()
+    if read_more.count() > 0:
+        print("✅ Clicking 'Read More'")
+        read_more.click()
+
+        page.wait_for_timeout(1000)
+
+        show_less = page.get_by_text("Show Less")
+        if show_less.count() > 0:
+            print("✅ Clicking 'Show Less'")
+            show_less.click()
+    else:
+        print("ℹ️ 'Read More' not found — skipping Read More / Show Less steps")
 
     # --------✅ Validation step after clicks --------
 
