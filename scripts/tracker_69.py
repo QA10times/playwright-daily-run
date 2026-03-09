@@ -47,7 +47,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.get_by_text("Est. Visitors").click()
     page.get_by_text("Est. Exhibitors").click()
-    page.get_by_text("Rank").click()
+    page.get_by_text("Rank").first.click()
     page.get_by_text("Event Rating").click()
     page.get_by_text("Frequency").click()
     page.get_by_text("Forecasted").click()
