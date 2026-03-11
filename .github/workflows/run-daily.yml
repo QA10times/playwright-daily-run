@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -35,12 +35,10 @@ jobs:
           rm -f logs/failures.txt
           failed=0
 
-          # Detect current UTC time
           hour=$(date -u +%H)
           minute=$(date -u +%M)
           echo "Current UTC time: ${hour}:${minute}"
 
-          # Treat 00:00–02:59 UTC as the '5:30 AM IST' schedule
           if (( 0 <= hour && hour < 3 )); then
             IS_MORNING_RUN=true
           else
@@ -50,50 +48,43 @@ jobs:
           echo "Is morning run (5:30 AM IST window)? ${IS_MORNING_RUN}"
 
           for file in scripts/*.py; do
-            # If no python files exist, skip
             if [ ! -e "$file" ]; then
               echo "No scripts found in scripts/; skipping."
               break
             fi
 
-            # Skip dashboard_4.py unless it's the morning window
             if [[ "$(basename "$file")" == "dashboard_4.py" && "$IS_MORNING_RUN" != "true" ]]; then
               echo "Skipping $file for this schedule"
               continue
             fi
 
             logname="logs/$(basename "$file").log"
-            echo "------------------------------------------------------------" | tee -a "$logname"
-            echo "Running $file (Attempt 1) at $(date -u '+%Y-%m-%d %H:%M:%S UTC')" | tee -a "$logname"
 
+            echo "Running $file (Attempt 1)"
             if python "$file" >> "$logname" 2>&1; then
-              echo "$file SUCCESS on first attempt" | tee -a "$logname"
+              echo "$file SUCCESS"
               continue
             fi
 
-            echo "$file failed on first attempt. Retrying in 10s..." | tee -a "$logname"
+            echo "$file failed. Retrying..."
             sleep 10
 
-            echo "Running $file (Attempt 2) at $(date -u '+%Y-%m-%d %H:%M:%S UTC')" | tee -a "$logname"
             if python "$file" >> "$logname" 2>&1; then
-              echo "$file SUCCESS on retry" | tee -a "$logname"
+              echo "$file SUCCESS on retry"
               continue
             fi
 
-            echo "$file FAILED after retry" | tee -a "$logname" | tee -a logs/failures.txt
+            echo "$file FAILED after retry" | tee -a logs/failures.txt
             failed=1
           done
 
           if [ $failed -eq 1 ]; then
-            echo "Some scripts failed even after retry. See logs/failures.txt"
             exit 1
-          else
-            echo "All scripts completed successfully (after retries if any)."
           fi
 
       - name: Upload logs as artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: script-logs
           path: logs/
