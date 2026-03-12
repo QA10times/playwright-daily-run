@@ -36,7 +36,9 @@ def run(playwright: Playwright) -> None:
     time.sleep(10)
     page.get_by_text("Table").click()
     page.get_by_role("button", name="Popularity").click()
-    page.get_by_role("button", name="Estimated Visitors").click()
+    page.get_by_role("combobox").filter(has_text="Popularity").click()
+    page.get_by_label("Estimated Visitors").get_by_text("Estimated Visitors").click()
+    page.get_by_role("button", name="Apply").click()
     time.sleep(5)
     page.get_by_role("cell", name="+").first.click()
 

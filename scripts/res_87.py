@@ -16,7 +16,9 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Apply Filters").click()
     page.get_by_role("tab", name="Table").click()
     page.get_by_role("button", name="Popularity").click()
-    page.get_by_role("dialog").get_by_role("button", name="Estimated Visitors").click()
+    page.get_by_role("combobox").filter(has_text="Popularity").click()
+    page.get_by_role("listbox").get_by_text("Estimated Visitors").click()
+    page.get_by_role("button", name="Apply", exact=True).click()
     page.get_by_role("tabpanel", name="Table").get_by_label("Go to next page").click()
 
     # ---------------------
