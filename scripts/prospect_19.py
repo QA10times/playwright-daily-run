@@ -47,7 +47,7 @@ def run(playwright: Playwright) -> None:
     with page.expect_navigation(url=re.compile(r"/internal/company/")):
         card.evaluate("el => el.click()")
     time.sleep(3)
-    page.get_by_role("button", name="very low").click()
+    page.get_by_role("button", name="medium").click()
     page.get_by_role("button", name="dormant").click()
     page.get_by_text("USA").click()
     label = page.get_by_text("Exhibit", exact=False).first
