@@ -14,8 +14,8 @@ def run(playwright: Playwright) -> None:
     page.mouse.move(0, 500)
     page.get_by_role("link", name="Tracker").click()
     time.sleep(3)
-    page.get_by_role("textbox", name="Enter tracker name").first.click()
-    page.get_by_role("textbox", name="Enter tracker name").first.fill("test")
+    page.get_by_role("textbox", name="Search By Tracker Name").first.click()
+    page.get_by_role("textbox", name="Search By Tracker Name").first.fill("test")
     page.get_by_text("test").first.click()
 
     # ---------------------
