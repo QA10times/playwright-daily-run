@@ -33,6 +33,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("combobox").filter(has_text="Monthly").click()
     page.get_by_role("option", name="Yearly").click()
+    time.sleep(3)
     page.get_by_role("combobox").filter(has_text="Yearly").click()
     page.get_by_role("option", name="Weekly").click()
     # ---------------------
