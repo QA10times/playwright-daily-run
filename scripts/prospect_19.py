@@ -49,7 +49,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("button", name="medium").click()
     page.get_by_role("button", name="dormant").click()
-    page.get_by_text("USA").click()
+    page.get_by_text("USA").first.click()
     label = page.get_by_text("Exhibit", exact=False).first
     card = label.locator("xpath=ancestor::div[contains(@class,'flex')]").first
 
