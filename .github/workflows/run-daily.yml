@@ -2,15 +2,18 @@ name: Run Scripts Daily
 
 on:
   schedule:
-    - cron: '0 0 * * *'     # 5:30 AM IST
-    - cron: '30 7 * * *'    # 1:00 PM IST
-    - cron: '30 11 * * *'   # 5:00 PM IST
-    - cron: '30 15 * * *'   # 9:00 PM IST
+    - cron: '0 0 * * *'
+    - cron: '30 7 * * *'
+    - cron: '30 11 * * *'
+    - cron: '30 15 * * *'
   workflow_dispatch:
 
 permissions:
   contents: read
-  actions: write   # ✅ REQUIRED for artifact upload
+  actions: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # ✅ future-proof
 
 jobs:
   run-scripts:
