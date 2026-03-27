@@ -8,6 +8,10 @@ on:
     - cron: '30 15 * * *'   # 9:00 PM IST
   workflow_dispatch:
 
+permissions:
+  contents: read
+  actions: write   # ✅ REQUIRED for artifact upload
+
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
