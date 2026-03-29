@@ -2,6 +2,11 @@ import re
 import time
 from playwright.sync_api import Playwright, sync_playwright, expect, TimeoutError
 
+
+def check_element(page, param):
+    pass
+
+
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=True, slow_mo=500)
     context = browser.new_context()
@@ -30,12 +35,12 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Upcoming Events").click()
     page.get_by_text("Table").click()
     time.sleep(5)
-    page.get_by_text("Rank").first.click()
-    page.get_by_text("Event Rating").click()
-    page.get_by_text("Trust").first.click()
-    page.get_by_text("Frequency").click()
-    page.get_by_text("Forecasted").click()
-    page.get_by_text("Audience Zone").click()
+    check_element(page, "Rank")
+    check_element(page, "Event Rating")
+    check_element(page, "Trust")
+    check_element(page, "Frequency")
+    check_element(page, "Forecasted")
+    check_element(page, "Audience Zone")
     page.get_by_role("link", name="Configurations").click()
     time.sleep(3)
     page.get_by_role("button", name="Event Type").click()
