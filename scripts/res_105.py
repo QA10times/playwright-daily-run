@@ -26,7 +26,7 @@ def run(playwright: Playwright) -> None:
     page.locator("div").filter(has_text=re.compile(r"^Select events to perform actionNone$")).get_by_role(
         "checkbox").click()
     page.get_by_role("combobox").filter(has_text="None").click()
-    page.get_by_role("option", name="Hot").click()
+    page.get_by_role("option", name="Attend").click()
     page.get_by_role("button", name="Submit").click()
     time.sleep(3)
     page.get_by_text("Bulk action completed").click()

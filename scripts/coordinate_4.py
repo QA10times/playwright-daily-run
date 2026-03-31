@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.get_by_role("button", name="Type").click()
-    page.get_by_role("checkbox", name="Cold").click()
+    page.get_by_role("checkbox", name="Attend").click()
     page.get_by_role("button", name="Status").click()
     page.get_by_role("checkbox", name="In Progress").click()
     page.get_by_role("button", name="Dates").click()
