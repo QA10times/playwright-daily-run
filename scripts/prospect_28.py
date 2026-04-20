@@ -24,7 +24,8 @@ def run(playwright: Playwright) -> None:
     with page.expect_navigation(url=re.compile(r"/internal/company/")):
         card.evaluate("el => el.click()")
     time.sleep(3)
-    page.get_by_role("tab", name="Past").click()
+    page.get_by_role("tab", name="Upcoming").click()
+    page.get_by_role("button", name="more events").click()
     page.get_by_text("New Delhi, India").first.click()
 
     # ---------------------

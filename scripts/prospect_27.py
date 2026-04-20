@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.get_by_role("combobox", name="Search Events").click()
     page.get_by_role("combobox", name="Search Events").fill("magic")
-    page.get_by_text("MAGIC LAS VEGAS").click()
+    page.get_by_text("MAGIC LAS VEGAS").first.click()
     time.sleep(3)
     card = page.locator("a.block[href^='/internal/company/']").first
     card.wait_for(state="attached", timeout=60000)
