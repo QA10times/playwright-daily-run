@@ -17,7 +17,13 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox", name="Search Companies").fill("bmc training")
     time.sleep(3)
     page.get_by_role("option", name="BMC Training London, United").locator("span").click()
-    page.get_by_role("link", name="BMC Training logo BMC").click()
+    page.wait_for_load_state("networkidle")
+
+    card = page.locator("a.block[href^='/internal/company/']").first
+    card.wait_for(state="attached", timeout=60000)
+
+    with page.expect_navigation(url=re.compile(r"/internal/company/")):
+        card.evaluate("el => el.click()")
     time.sleep(5)
     page.get_by_text("BMC Training", exact=True).first.click()
 

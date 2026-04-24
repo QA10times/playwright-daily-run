@@ -18,7 +18,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Add bookmark").first.click()
     time.sleep(2)
     page.get_by_role("button", name="Remove bookmark").first.click()
-    page.get_by_role("region", name="Notifications (F8)").get_by_role("button").click()
 
     # ---------------------
     context.close()

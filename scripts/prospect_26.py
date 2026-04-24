@@ -29,7 +29,7 @@ def run(playwright: Playwright) -> None:
     with page.expect_popup() as page1_info:
         page.get_by_role("link", name="MAGIC LAS VEGAS").click()
     page1 = page1_info.value
-    page1.get_by_role("button", name="Event Contact").click()
+    page1.get_by_role("button", name="Contacts").click()
 
     # ---------------------
     context.close()

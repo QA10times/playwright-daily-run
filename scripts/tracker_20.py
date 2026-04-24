@@ -34,7 +34,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Invite others by email").fill("ghanshyam@10times.com")
     page.get_by_role("button", name="Send Invite").click()
     page.get_by_text("Success", exact=True).click()
-    page.get_by_role("region", name="Notifications (F8)").get_by_role("button").click()
+    
 
     # ---------------------
     context.close()
