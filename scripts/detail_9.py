@@ -45,7 +45,7 @@ def run(playwright: Playwright) -> None:
 
     # Define expected content you want to confirm is present after clicks
     # Example: text that should appear after Read More expands (replace with your actual expected content)
-    EXPECTED_TEXT = "michelle.swayze@informa.com"
+    EXPECTED_TEXT = "fashionpr@informa.com"
 
     print(f"\n✅ Verifying if expected text '{EXPECTED_TEXT}' is present on page...")
     try:
