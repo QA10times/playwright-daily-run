@@ -22,7 +22,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Contacts").click()
 
     print("✅ Clicking 'Show details'")
-    page.get_by_role("button", name="View Contact").first.click()
+    page.get_by_role("button", name="View", exact=True).first.click()
 
     print("✅ Clicking Email link")
     page.get_by_text("fashionpr@informa.com").click()

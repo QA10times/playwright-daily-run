@@ -20,8 +20,7 @@ def run(playwright: Playwright) -> None:
         card.evaluate("el => el.click()")
     time.sleep(3)
     page.get_by_role("button", name="Company Contact").click()
-    page.get_by_role("button", name="View Contact").first.click()
-    page.locator("div").filter(has_text=re.compile(r"^Unlocked$")).click()
+    page.get_by_role("button", name="View", exact=True).first.click()
 
 
 

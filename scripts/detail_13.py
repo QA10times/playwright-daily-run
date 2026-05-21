@@ -21,12 +21,13 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Contacts").click()
 
     print("✅ Clicking 'Show details'")
-    page.get_by_role("button", name="View Contact").first.click()
+    page.get_by_role("button", name="View", exact=True).first.click()
 
     print("✅ Clicking Email link")
     page.get_by_text("gsoffice@geochemsoc.org").first.click()
 
     print("✅ Clicking 'Read More'")
+    page.get_by_role("link", name="Go back").click()
     page.get_by_text("Read More").click()
 
     print("✅ Clicking 'Show Less'")
