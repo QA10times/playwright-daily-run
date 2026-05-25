@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("tab", name="Companies").click()
     time.sleep(5)
     page.get_by_role("combobox", name="Search Events").click()
-    page.get_by_role("combobox", name="Search Events").fill("magic")
+    page.get_by_role("combobox", name="Search Events").fill("magic las vegas")
     page.get_by_text("MAGIC LAS VEGAS").first.click()
     time.sleep(3)
     card = page.locator("a.block[href^='/internal/company/']").first
