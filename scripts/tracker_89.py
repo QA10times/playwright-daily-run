@@ -25,7 +25,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Event Participation").click()
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("textbox", name="Search By Event Name").click()
-    page.get_by_role("textbox", name="Search By Event Name").fill("magic")
+    page.get_by_role("textbox", name="Search By Event Name").fill("magic las vegas")
     page.get_by_text("MAGIC LAS VEGAS").first.click()
     page.get_by_role("switch", name="Show ratings").click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
