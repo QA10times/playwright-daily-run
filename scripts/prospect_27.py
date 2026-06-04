@@ -17,17 +17,26 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox", name="Search Events").fill("magic las vegas")
     page.get_by_text("MAGIC LAS VEGAS").first.click()
     time.sleep(3)
-    card = page.locator("a.block[href^='/internal/company/']").first
-    card.wait_for(state="attached", timeout=60000)
+    page.wait_for_selector(
+        "a[href^='/internal/company/']:visible",
+        timeout=60000
+    )
 
-    with page.expect_navigation(url=re.compile(r"/internal/company/")):
-        card.evaluate("el => el.click()")
+    first_card = page.locator(
+        "a[href^='/internal/company/']:visible"
+    ).first
+
+    with page.expect_popup() as popup_info:
+        first_card.click()
+
+    company_page = popup_info.value
+    company_page.wait_for_load_state("domcontentloaded")
     time.sleep(3)
-    page.get_by_role("tab", name="Upcoming").click()
-    page.get_by_role("textbox", name="Search by Event name").click()
-    page.get_by_role("textbox", name="Search by Event name").fill("magic las vegas")
-    with page.expect_popup() as page1_info:
-        page.get_by_role("link", name="MAGIC LAS VEGAS").click()
+    company_page.get_by_role("tab", name="Upcoming").click()
+    company_page.get_by_role("textbox", name="Search by Event name").click()
+    company_page.get_by_role("textbox", name="Search by Event name").fill("magic las vegas")
+    with company_page.expect_popup() as page1_info:
+        company_page.get_by_role("link", name="MAGIC LAS VEGAS").click()
     page1 = page1_info.value
     page1.get_by_role("button", name="Contacts").click()
 

@@ -18,15 +18,24 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("New Delhi").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(3)
-    card = page.locator("a.block[href^='/internal/company/']").first
-    card.wait_for(state="attached", timeout=60000)
+    page.wait_for_selector(
+        "a[href^='/internal/company/']:visible",
+        timeout=60000
+    )
 
-    with page.expect_navigation(url=re.compile(r"/internal/company/")):
-        card.evaluate("el => el.click()")
+    first_card = page.locator(
+        "a[href^='/internal/company/']:visible"
+    ).first
+
+    with page.expect_popup() as popup_info:
+        first_card.click()
+
+    company_page = popup_info.value
+    company_page.wait_for_load_state("domcontentloaded")
     time.sleep(3)
-    page.get_by_role("tab", name="Upcoming").click()
-    page.get_by_role("button", name="more events").click()
-    page.get_by_text("New Delhi, India").first.click()
+    company_page.get_by_role("tab", name="Upcoming").click()
+    company_page.get_by_role("button", name="more events").click()
+    company_page.get_by_text("New Delhi, India").first.click()
 
     # ---------------------
     context.close()

@@ -13,26 +13,35 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("tab", name="Companies").click()
     time.sleep(5)
-    card = page.locator("a.block[href^='/internal/company/']").first
-    card.wait_for(state="attached", timeout=60000)
+    page.wait_for_selector(
+        "a[href^='/internal/company/']:visible",
+        timeout=60000
+    )
 
-    with page.expect_navigation(url=re.compile(r"/internal/company/")):
-        card.evaluate("el => el.click()")
+    first_card = page.locator(
+        "a[href^='/internal/company/']:visible"
+    ).first
+
+    with page.expect_popup() as popup_info:
+        first_card.click()
+
+    company_page = popup_info.value
+    company_page.wait_for_load_state("domcontentloaded")
     time.sleep(3)
-    page.get_by_role("button", name="more events").click()
+    company_page.get_by_role("button", name="more events").click()
     time.sleep(3)
-    page.get_by_role("button", name="more events").click()
-    page.get_by_role("tab", name="Past").click()
-    page.get_by_role("button", name="more events").click()
+    company_page.get_by_role("button", name="more events").click()
+    company_page.get_by_role("tab", name="Past").click()
+    company_page.get_by_role("button", name="more events").click()
     time.sleep(3)
-    page.get_by_role("button", name="more events").click()
+    company_page.get_by_role("button", name="more events").click()
     time.sleep(2)
-    page.get_by_text("Events Attended").click()
-    page.get_by_text("Most Attended in").click()
-    page.get_by_text("Other Countries").click()
-    page.get_by_role("combobox").click()
-    page.get_by_role("checkbox", name="Exhibit").click()
-    page.get_by_role("combobox").click()
+    company_page.get_by_text("Events Attended").click()
+    company_page.get_by_text("Most Attended in").click()
+    company_page.get_by_text("Other Countries").click()
+    company_page.get_by_role("combobox").click()
+    company_page.get_by_role("checkbox", name="Exhibit").click()
+    company_page.get_by_role("combobox").click()
     #page.get_by_text("exhibitor").first.click()
 
 

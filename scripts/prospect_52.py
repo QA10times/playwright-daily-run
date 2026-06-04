@@ -13,20 +13,29 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("tab", name="People").click()
     time.sleep(5)
-    card = page.locator("a.block[href^='/internal/user/']").first
-    card.wait_for(state="attached", timeout=60000)
+    page.wait_for_selector(
+        "a[href^='/internal/user/']:visible",
+        timeout=60000
+    )
 
-    with page.expect_navigation(url=re.compile(r"/internal/user/")):
-        card.evaluate("el => el.click()")
+    first_card = page.locator(
+        "a[href^='/internal/user/']:visible"
+    ).first
+
+    with page.expect_popup() as popup_info:
+        first_card.click()
+
+    people_page = popup_info.value
+    people_page.wait_for_load_state("domcontentloaded")
     time.sleep(3)
     #page.get_by_role("button", name="more events").click()
     time.sleep(3)
-    page.get_by_role("tab", name="Upcoming").click()
-    page.get_by_role("button", name="more events").click()
+    people_page.get_by_role("tab", name="Upcoming").click()
+    people_page.get_by_role("button", name="more events").click()
     time.sleep(2)
-    page.get_by_text("Events Attended").click()
-    page.get_by_text("Most Attended in").click()
-    page.get_by_text("Other Countries").click()
+    people_page.get_by_text("Events Attended").click()
+    people_page.get_by_text("Most Attended in").click()
+    people_page.get_by_text("Other Countries").click()
 
 
 
