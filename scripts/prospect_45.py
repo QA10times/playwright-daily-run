@@ -28,9 +28,6 @@ def run(playwright: Playwright) -> None:
     company_page = popup_info.value
     company_page.wait_for_load_state("domcontentloaded")
     time.sleep(3)
-    company_page.get_by_role("button", name="more events").click()
-    time.sleep(3)
-    company_page.get_by_role("button", name="more events").click()
     company_page.get_by_role("tab", name="Past").click()
     company_page.get_by_role("button", name="more events").click()
     time.sleep(3)
