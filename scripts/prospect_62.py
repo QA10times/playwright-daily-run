@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.get_by_role("button", name="Event Location").click()
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("delhi")
-    page.get_by_text("New Delhi").first.click()
+    page.get_by_text("Delhi").first.click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(3)
     page.wait_for_selector(

@@ -7,15 +7,15 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto("https://gtm.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=gtm")
+    page.goto("https://geo.whr.ai/login?utm_source=10times&utm_medium=web&utm_campaign=right_rail&hash=4IQjAPckGZDk9ArLj1D3pDYc8tvqFPX7ZsemflFWON0=&uid=1048476&platform=geo")
     time.sleep(5)
-    page.goto("https://gtm.whr.ai/internal/search/events")
+    page.goto("https://geo.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("tab", name="Companies").click()
     time.sleep(5)
     page.get_by_role("button", name="Event Location").click()
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("delhi")
-    page.get_by_text("New Delhi").first.click()
+    page.get_by_text("Delhi").first.click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(3)
     page.wait_for_selector(
