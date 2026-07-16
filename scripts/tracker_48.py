@@ -20,7 +20,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("textbox", name="Competitor Name or Website").click()
     page.get_by_role("textbox", name="Competitor Name or Website").fill("cvent")
-    page.get_by_role("option", name="Cvent f56ede302fa63e109df950a3c22727a4").click()
+    page.get_by_role("option", name="Cvent").first.click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
     page.get_by_role("textbox", name="Enter Tracker Name").fill("test")
     page.get_by_role("button", name="Save").click()
