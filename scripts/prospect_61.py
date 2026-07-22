@@ -20,7 +20,7 @@ def run(playwright: Playwright) -> None:
 
     first_card = page.locator(
         "a[href^='/internal/company/']:visible"
-    ).first
+    ).nth(2)
 
     with page.expect_popup() as popup_info:
         first_card.click()
