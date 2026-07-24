@@ -32,7 +32,7 @@ def run(playwright: Playwright) -> None:
     company_page = popup_info.value
     company_page.wait_for_load_state("domcontentloaded")
     time.sleep(5)
-    page.get_by_text("BMC Training", exact=True).first.click()
+    page.get_by_text("BMC Training").first.click()
 
     # ---------------------
     context.close()
