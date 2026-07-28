@@ -39,7 +39,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Forecasted").click()
     page.get_by_role("link", name="Configurations").click()
     time.sleep(5)
-    page.get_by_role("button", name="Skip").click()
     page.get_by_role("button", name="Maturity").click()
     page.get_by_role("radio", name="Flagship").click()
     page.get_by_role("button", name="Save").click()
