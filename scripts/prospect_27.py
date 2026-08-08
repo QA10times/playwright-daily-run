@@ -36,7 +36,7 @@ def run(playwright: Playwright) -> None:
     company_page.get_by_role("textbox", name="Search by Event name").click()
     company_page.get_by_role("textbox", name="Search by Event name").fill("magic las vegas")
     with company_page.expect_popup() as page1_info:
-        company_page.get_by_role("link", name="MAGIC LAS VEGAS").click()
+        company_page.get_by_role("link", name="MAGIC LAS VEGAS").first.click()
     page1 = page1_info.value
     page1.get_by_role("button", name="Contacts").click()
 
