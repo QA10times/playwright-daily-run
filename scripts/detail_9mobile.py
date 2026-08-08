@@ -25,7 +25,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="View", exact=True).first.click()
 
     print("✅ Clicking Email link")
-    page.get_by_text("francesca.berry@informa.com").click()
+    page.get_by_text("attendeecustomerservice@fashionbyinforma.com").click()
 
     read_more = page.get_by_text("Read More")
 
@@ -46,7 +46,7 @@ def run(playwright: Playwright) -> None:
 
     # Define expected content you want to confirm is present after clicks
     # Example: text that should appear after Read More expands (replace with your actual expected content)
-    EXPECTED_TEXT = "francesca.berry@informa.com"
+    EXPECTED_TEXT = "attendeecustomerservice@fashionbyinforma.com"
 
     print(f"\n✅ Verifying if expected text '{EXPECTED_TEXT}' is present on page...")
     try:
