@@ -15,16 +15,16 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.get_by_role("textbox", name="Search Events").click()
-    page.get_by_label("", exact=True).fill("indian han")
-    page.get_by_label("", exact=True).fill("indian han")
+    page.get_by_role("textbox", name="Search Events").fill("indian han")
     time.sleep(3)
     page.get_by_text("Indian Handicrafts & Gifts").click()
     time.sleep(3)
-    page.get_by_role("heading", name="Indian Handicrafts & Gifts").click()
-    page.get_by_role("textbox", name="Take a note").click()
-    page.get_by_role("textbox", name="Take a note").fill("test")
-    page.get_by_role("button", name="Send send").click()
-    page.locator("#layout-main header").get_by_role("button").filter(has_text=re.compile(r"^$")).first.click()
+    with context.expect_page() as page1_info:
+        page.get_by_role("heading", name="Indian Handicrafts & Gifts").click()
+    page1 = page1_info.value
+    page1.get_by_role("textbox", name="Take a note").click()
+    page1.get_by_role("textbox", name="Take a note").fill("test")
+    page1.get_by_role("button", name="Send send").click()
     # ---------------------
     context.close()
     browser.close()

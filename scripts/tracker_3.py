@@ -17,7 +17,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_role("button", name="Create").click()
     page.get_by_role("button", name="Skip").click()
-    page.get_by_role("link", name="people template Location Tracker Keep a close eye on event activity within a").click()
+    page.get_by_role("link", name="New tracker").first.click()
     page.get_by_role("button", name="Skip").click()
 
     # ---------------------

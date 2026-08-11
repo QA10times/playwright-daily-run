@@ -16,14 +16,12 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.get_by_role("textbox", name="Search Events").click()
-    page.get_by_label("", exact=True).fill("test")
-
-    page.get_by_label("", exact=True).fill("test")
+    page.get_by_role("textbox", name="Search Events").fill("test")
     time.sleep(3)
     page.get_by_label("Suggestions").get_by_text("test").first.click()
     time.sleep(3)
     page.get_by_role("heading", name="test").click()
-    page.get_by_text("Team Requests").click()
+    
     # ---------------------
     context.close()
     browser.close()

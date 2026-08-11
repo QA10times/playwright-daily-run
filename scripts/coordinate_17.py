@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.mouse.move(500, 0)
-    page.get_by_role("button", name="Add", exact=True).click()
+    page.get_by_role("button", name="Import", exact=True).click()
     page.get_by_role("button", name="Add Manually").click()
     page.get_by_text("Conference", exact=True).click()
     page.get_by_text("warm").first.click()
