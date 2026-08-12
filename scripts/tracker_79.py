@@ -23,6 +23,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox", name="Search by venue name").click()
     page.get_by_role("combobox", name="Search by venue name").fill("unite")
     page.get_by_text("Unite", exact=True).click()
+    page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
     page.get_by_role("textbox", name="Enter Tracker Name").click()
     page.get_by_role("textbox", name="Enter Tracker Name").fill("test")

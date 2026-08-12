@@ -15,9 +15,9 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("link", name="Coordinate").click()
     time.sleep(3)
     page.get_by_role("button", name="Type").click()
-    page.get_by_role("checkbox", name="Attend").click()
+    page.get_by_role("checkbox", name="Hot").click()
     page.get_by_role("button", name="Status").click()
-    page.get_by_role("checkbox", name="In Progress").click()
+    page.get_by_role("checkbox", name="Pending").click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
     page.get_by_role("button", name="Upvote", exact=True).click()
@@ -25,7 +25,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="By others").click()
     time.sleep(3)
     page.get_by_role("tab", name="All Events").click()
-    page.get_by_role("button", name="In Progress").first.click()
+    page.get_by_role("button", name="Pending").first.click()
 
     # ---------------------
     context.close()
