@@ -25,7 +25,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("combobox").click()
     page.get_by_placeholder("E.g. Bengaluru, Karnataka").fill("noir")
     time.sleep(3)
-    page.get_by_text("Noir", exact=True).click()
+    page.get_by_text("Noir", exact=True).first.click()
     page.get_by_role("button", name="Save Event").click()
     time.sleep(5)
     # ---------------------
