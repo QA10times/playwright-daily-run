@@ -14,7 +14,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("combobox", name="Search Events").click()
     page.get_by_role("combobox", name="Search Events").fill("magic las vegas")
-    page.locator("#event-option-0").get_by_text("MAGIC LAS VEGAS").click()
+    page.get_by_role("option", name="MAGIC LAS VEGAS").click()
     page.get_by_role("link", name="MAGIC LAS VEGAS").first.click()
     time.sleep(8)
 
