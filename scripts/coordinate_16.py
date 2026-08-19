@@ -12,7 +12,7 @@ def run(playwright: Playwright) -> None:
     page.goto("https://gtm.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
     page.mouse.move(0, 500)
-    page.get_by_role("link", name="Coordinate").click()
+    page.get_by_role("link", name="Bookmark").click()
     time.sleep(3)
     page.mouse.move(500, 0)
     page.get_by_role("button", name="Import", exact=True).click()
