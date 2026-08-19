@@ -32,8 +32,8 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Skip").click()
     time.sleep(10)
     page.get_by_text("Share").click()
-    page.get_by_role("textbox", name="Invite others by email").click()
-    page.get_by_role("textbox", name="Invite others by email").fill("ghanshyam@10times.com")
+    page.get_by_role("textbox", name="Enter email").click()
+    page.get_by_role("textbox", name="Enter email").fill("ghanshyam@10times.com")
     page.get_by_role("button", name="Send Invite").click()
     page.get_by_text("Success", exact=True).click()
 
