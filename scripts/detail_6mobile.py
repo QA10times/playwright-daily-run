@@ -18,7 +18,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.goto("https://gtm.whr.ai/internal/event/66185671-fb08-5c68-9975-f1cfffb5182f")
     time.sleep(5)
-    page.get_by_role("button").filter(has_text=re.compile(r"^$")).nth(0).click()
+    page.get_by_role("button", name="Bookmark Event").click()
     page.get_by_role("radio", name="Un-Bookmark").click()
     page.get_by_role("button", name="Submit").click()
     time.sleep(3)

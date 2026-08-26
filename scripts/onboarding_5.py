@@ -7,8 +7,8 @@ def run(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://geo.whr.ai/signin")
-    page.get_by_placeholder("Email").click()
-    page.get_by_placeholder("Email").fill("")
+    page.get_by_placeholder("you@company.com").click()
+    page.get_by_placeholder("you@company.com").fill("")
     page.get_by_role("button", name="Sign In").click()
 
     # ---------------------

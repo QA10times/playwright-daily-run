@@ -23,8 +23,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.locator(".hidden > .flex-1 > .md\\:px-6 > div > div > #sorting-dropdown-desktop > div").click()
     page.get_by_text("Bulk Action").click()
-    page.locator("div").filter(
-        has_text=re.compile(r"^Select events to perform actionChoose an actionSubmitCancel$")).get_by_role(
+    page.locator("div").filter(has_text="Select all events to perform actionChoose an actionSubmitCancel").get_by_role(
         "checkbox").click()
     page.get_by_role("combobox").filter(has_text="Choose an action").click()
     page.get_by_role("option", name="Hot").click()
