@@ -50,10 +50,12 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
     page.get_by_text("Table").click()
     # Wait for the event table to fully load
-    page.wait_for_selector(".truncate.font-medium a")
+    page.wait_for_selector("table tbody tr")
 
-    # Get the first event link directly
-    event_link = page.locator(".truncate.font-medium a").first
+    # Scope to the first row only, then get the event name link
+    # (excluding the "Tradeshow" type badge link that sits alongside it)
+    first_row = page.locator("table tbody tr").first
+    event_link = first_row.get_by_role("link").filter(has_not_text="Tradeshow").first
 
     name = event_link.inner_text()
     print("First event name:", name)
