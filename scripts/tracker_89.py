@@ -66,6 +66,8 @@ def run(playwright: Playwright) -> None:
     new_page = new_page_info.value
     new_page.wait_for_load_state()
 
+    new_page.get_by_text("Overview").click()
+
     new_page.get_by_text("Tradeshows").first.click()
 
     # ---------------------
