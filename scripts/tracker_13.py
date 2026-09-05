@@ -29,7 +29,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Save").click()
     page.get_by_role("button", name="Skip").click()
     time.sleep(10)
-    page.get_by_role("link", name="Edit").click()
+    page.get_by_role("link", name="Edit").first.click()
     time.sleep(3)
     page.get_by_role("button", name="Event Type").click()
     page.get_by_role("checkbox", name="Tradeshows").click()
