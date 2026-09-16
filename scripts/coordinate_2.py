@@ -17,8 +17,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Search Events").click()
     page.get_by_role("textbox", name="Search Events").fill("london ")
     page.get_by_label("Suggestions").get_by_text("London International Health").click()
-    page.get_by_role("button", name="Type").click()
-    page.get_by_role("button", name="Type").click()
     with context.expect_page() as page1_info:
         page.get_by_role("heading", name="London International Health").click()
     page1=page1_info.value
