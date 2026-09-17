@@ -43,7 +43,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_text("Est. Impact ($)").click()
     page.get_by_role("link", name="Edit").click()
     time.sleep(3)
-    page.get_by_role("button", name="Maturity").click()
+    page.get_by_role("button", name="Maturity").first.click()
     page.get_by_role("radio", name="New").click()
     page.get_by_role("button", name="Save").click()
     page.get_by_role("button", name="Business Events").click()

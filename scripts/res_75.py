@@ -13,10 +13,10 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.goto("https://gtm.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
-    page.get_by_role("button", name="Audience Profile").click()
+    page.get_by_role("button", name="Audience Profile").first.click()
     page.get_by_role("option", name="Accountants").click()
     page.get_by_role("option", name="Architects").click()
-    page.get_by_role("button", name="Audience Country").click()
+    page.get_by_role("button", name="Audience Country").first.click()
     page.get_by_role("searchbox", name="Search").click()
     page.get_by_role("searchbox", name="Search").fill("india")
     page.get_by_label("Audience Country").get_by_text("India", exact=True).click()
@@ -26,7 +26,7 @@ def run(playwright: Playwright) -> None:
     check_element(page, "Audience Zone")
     check_element(page, "Audience Country")
     page.get_by_role("button", name="Reset all filters").click()
-    page.get_by_role("option", name="Accountants").click()
+    page.get_by_role("option", name="Accountants").first.click()
     page.get_by_role("button", name="Apply Filters").click()
 
 

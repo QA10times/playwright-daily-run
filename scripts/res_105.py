@@ -17,7 +17,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Location India").click()
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
-    page.get_by_role("button", name="Maturity").click()
+    page.get_by_role("button", name="Maturity").first.click()
     page.get_by_role("radio", name="Flagship").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(5)

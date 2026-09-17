@@ -24,7 +24,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Dates").click()
     page.get_by_role("button", name="12 months").click()
     page.get_by_role("button", name="Dates").click()
-    page.get_by_role("button", name="Estimated Visitors").click()
+    page.get_by_role("button", name="Estimated Visitors").first.click()
     page.get_by_role("checkbox", name="Nano").click()
     page.get_by_role("checkbox", name="Small").click()
     page.get_by_role("checkbox", name="Large").click()

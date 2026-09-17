@@ -59,23 +59,23 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Participation Role").click()
 
     # Participation Frequency
-    page.get_by_role("button", name="Participation Frequency").click()
+    page.get_by_role("button", name="Participation Frequency").first.click()
 
     page.get_by_role("checkbox", name="High", exact=True).click()
     page.get_by_role("checkbox", name="Very Low").click()
     page.get_by_role("checkbox", name="Medium").click()
 
-    page.get_by_role("button", name="Participation Frequency").click()
+    page.get_by_role("button", name="Participation Frequency").first.click()
 
     # Activeness
-    page.get_by_role("button", name="Activeness").click()
+    page.get_by_role("button", name="Activeness").first.click()
     page.get_by_role("checkbox", name="Dormant").click()
-    page.get_by_role("button", name="Activeness").click()
+    page.get_by_role("button", name="Activeness").first.click()
 
     # Event Type
-    page.get_by_role("button", name="Event Type").click()
+    page.get_by_role("button", name="Event Type").first.click()
     page.get_by_role("checkbox", name="Tradeshows").click()
-    page.get_by_role("button", name="Event Type").click()
+    page.get_by_role("button", name="Event Type").first.click()
 
     # Followers
     page.get_by_role("button", name="Followers", exact=True).click()
