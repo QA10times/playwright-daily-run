@@ -33,7 +33,7 @@ def run(playwright: Playwright) -> None:
     company_page.wait_for_load_state("domcontentloaded")
     time.sleep(3)
     company_page.get_by_role("tab", name="Past").click()
-    company_page.get_by_role("textbox", name="Search by Event name").click()
+    company_page.get_by_role("button", name="Search by Event name").click()
     company_page.get_by_role("textbox", name="Search by Event name").fill("magic las vegas")
     with company_page.expect_popup() as page1_info:
         company_page.get_by_role("link", name="MAGIC LAS VEGAS").first.click()

@@ -31,6 +31,7 @@ def run(playwright: Playwright) -> None:
     #page.get_by_role("button", name="more events").click()
     time.sleep(3)
     people_page.get_by_role("tab", name="Past").click()
+    people_page.get_by_role("button", name="All").click()
     people_page.get_by_role("button", name="more events").click()
     time.sleep(2)
     people_page.get_by_text("Events Attended").click()
