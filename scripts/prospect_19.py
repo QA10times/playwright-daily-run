@@ -61,8 +61,7 @@ def run(playwright: Playwright) -> None:
     # Participation Frequency
     page.get_by_role("button", name="Participation Frequency").first.click()
 
-    page.get_by_role("checkbox", name="High", exact=True).click()
-    page.get_by_role("checkbox", name="Very Low").click()
+
     page.get_by_role("checkbox", name="Medium").click()
 
     page.get_by_role("button", name="Participation Frequency").first.click()
@@ -77,7 +76,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="Tradeshows").click()
     page.get_by_role("button", name="Event Type").first.click()
 
-    
     # Apply filters
     page.get_by_role("button", name="Apply Filters").click()
 

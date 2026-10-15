@@ -61,8 +61,7 @@ def run(playwright: Playwright) -> None:
     # Participation Frequency
     page.get_by_role("button", name="Participation Frequency").first.click()
 
-    page.get_by_role("checkbox", name="High", exact=True).click()
-    page.get_by_role("checkbox", name="Very Low").click()
+    
     page.get_by_role("checkbox", name="Medium").click()
 
     page.get_by_role("button", name="Participation Frequency").first.click()
