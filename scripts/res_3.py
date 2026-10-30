@@ -30,7 +30,7 @@ def run(playwright: Playwright) -> None:
         browser.close()
         return  # exit early if not found
 
-    page.get_by_role("button", name="Back").click()
+    
 
     # ---------------------
     context.close()

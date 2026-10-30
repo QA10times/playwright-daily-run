@@ -34,10 +34,10 @@ def run(playwright: Playwright) -> None:
     time.sleep(3)
 
     # Handle new tab properly
-    with context.expect_page() as new_page_info:
-        page.get_by_role("link", name="Abdul").first.click()
-
-    page1 = new_page_info.value
+    # Profile page now opens in the SAME tab
+    page.get_by_role("link", name="Abdul").first.click()
+    page.wait_for_url("**/internal/user/**", timeout=60000)
+    page1 = page
 
     page1.wait_for_load_state("domcontentloaded")
 

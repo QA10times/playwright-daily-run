@@ -28,7 +28,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="By others").click()
     time.sleep(3)
     page.get_by_role("tab", name="All Events").click()
-    page.get_by_role("button", name="In Progress").first.click()
+    
 
     # ---------------------
     context.close()

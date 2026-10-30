@@ -28,10 +28,10 @@ def run(playwright: Playwright) -> None:
         "a[href^='/internal/company/']:visible"
     ).first
 
-    with page.expect_popup() as popup_info:
-        first_card.click()
-
-    company_page = popup_info.value
+    # Company detail page now opens in the SAME tab
+    first_card.click()
+    page.wait_for_url("**/internal/company/**", timeout=60000)
+    company_page = page
     company_page.wait_for_load_state("domcontentloaded")
 
     time.sleep(3)

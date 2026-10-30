@@ -22,10 +22,10 @@ def run(playwright: Playwright) -> None:
         "a[href^='/internal/user/']:visible"
     ).first
 
-    with page.expect_popup() as popup_info:
-        first_card.click()
-
-    people_page = popup_info.value
+    # Profile page now opens in the SAME tab
+    first_card.click()
+    page.wait_for_url("**/internal/user/**", timeout=60000)
+    people_page = page
     people_page.wait_for_load_state("domcontentloaded")
     time.sleep(3)
     #page.get_by_role("button", name="more events").click()
