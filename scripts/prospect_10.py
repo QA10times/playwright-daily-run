@@ -32,7 +32,7 @@ def run(playwright: Playwright) -> None:
     company_page = page
     company_page.wait_for_load_state("domcontentloaded")
     time.sleep(5)
-    company_page.get_by_text("BMC Training").first.click()
+    page.get_by_text("BMC Training").first.click()
 
     # ---------------------
     context.close()
