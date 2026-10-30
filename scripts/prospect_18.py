@@ -77,15 +77,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("checkbox", name="Tradeshows").click()
     page.get_by_role("button", name="Event Type").first.click()
 
-    # Followers
-    page.get_by_role("button", name="Followers", exact=True).click()
-
-    page.get_by_role("checkbox", name="- 500").click()
-    page.get_by_role("checkbox", name="1k - 5k").click()
-    page.get_by_role("checkbox", name="10k - 25k").click()
-    page.get_by_role("checkbox", name="50k - 100k").click()
-    page.get_by_role("checkbox", name="200k+").click()
-
+    
     # Apply filters
     page.get_by_role("button", name="Apply Filters").click()
 
