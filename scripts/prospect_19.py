@@ -100,7 +100,7 @@ def run(playwright: Playwright) -> None:
 
     # ---------------- COMPANY PAGE ACTIONS ---------------- #
 
-    company_page.get_by_role("button", name="medium").click()
+    company_page.get_by_role("button", name="Very Low").click()
     company_page.get_by_role("button", name="dormant").click()
 
     company_page.get_by_text("USA").first.click()
