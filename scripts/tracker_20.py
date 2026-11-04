@@ -19,6 +19,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Create").click()
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("link", name="Create Custom Tracker").click()
+    time.sleep(5)
     page.get_by_role("button", name="Location").click()
     page.get_by_role("combobox", name="E.g. Bengaluru, Karnataka").fill("india")
     page.get_by_role("option", name="India Country").locator("div").click()
