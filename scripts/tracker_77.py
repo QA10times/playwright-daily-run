@@ -32,7 +32,6 @@ def run(playwright: Playwright) -> None:
     time.sleep(5)
     page.get_by_role("button", name="Skip").click()
     page.get_by_role("button", name="Upcoming Events").click()
-    page.get_by_text("Table").click()
     time.sleep(3)
     page.get_by_label("Go to next page").click()
     time.sleep(3)
