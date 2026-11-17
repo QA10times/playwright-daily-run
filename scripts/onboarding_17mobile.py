@@ -61,7 +61,7 @@ def get_temp_email_and_otp():
             page2.wait_for_selector(otp_field_selector, timeout=10000)
             page2.fill(otp_field_selector, otp)
             page2.click("button[type='submit']")
-            page2.get_by_text("Skip for now").click()
+            page2.get_by_text("Explore all events instead").click()
             print("Signup process automated successfully!")
 
         except Exception as e:

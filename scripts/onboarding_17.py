@@ -75,7 +75,7 @@ def get_temp_email_and_otp():
 
             # Submit the OTP form
             page2.click("button[type='submit']")  # Adjust this selector if needed
-            page2.get_by_text("Skip for now").click()
+            page2.get_by_text("Explore all events instead").click()
             print("Signup process automated successfully!")
 
         except Exception as e:
