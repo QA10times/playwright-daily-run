@@ -60,10 +60,11 @@ def run(playwright: Playwright) -> None:
     name = event_link.inner_text()
     print("First event name:", name)
 
-    with context.expect_page() as new_page_info:
-        event_link.click()
-
-    new_page = new_page_info.value
+    # Event detail page now opens in the SAME tab
+    tracker_url = page.url
+    event_link.click()
+    page.wait_for_url(lambda url: url != tracker_url, timeout=60000)
+    new_page = page
     new_page.wait_for_load_state()
 
     new_page.get_by_text("Overview").click()

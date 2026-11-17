@@ -14,10 +14,6 @@ def run(playwright: Playwright) -> None:
     # Step 2: Click Skip
     page.goto("https://gtm.whr.ai/internal/search/events")
     page.get_by_role("button", name="Skip").click()
-
-    page.get_by_role("button", name="Event Entry").click()
-    page.get_by_role("checkbox", name="Free").click()
-    page.get_by_role("checkbox", name="Paid").click()
     page.get_by_role("button", name="Apply Filters").click()
     time.sleep(5)
     page.get_by_role("tab", name="Table").click()
