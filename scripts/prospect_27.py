@@ -35,9 +35,10 @@ def run(playwright: Playwright) -> None:
     company_page.get_by_role("tab", name="Upcoming").click()
     company_page.get_by_role("button", name="Search by Event name").click()
     company_page.get_by_role("textbox", name="Search by Event name").fill("magic las vegas")
-    with company_page.expect_popup() as page1_info:
-        company_page.get_by_role("link", name="MAGIC LAS VEGAS").first.click()
-    page1 = page1_info.value
+    # Event detail page now opens in the SAME tab
+    company_page.get_by_role("link", name="MAGIC LAS VEGAS").first.click()
+    company_page.wait_for_url("**/internal/event/**", timeout=60000)
+    page1 = company_page
     page1.get_by_role("button", name="Contacts").click()
 
     # ---------------------
